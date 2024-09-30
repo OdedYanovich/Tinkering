@@ -1,0 +1,1 @@
+A command is a $\mathbb{N}$ long list of letters and numbers that tells the player which [[Action]] will give [[Progress]]. 
