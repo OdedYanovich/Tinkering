@@ -19,9 +19,13 @@ The buttons will be held until the [[Action]] is completed to make the uniquenes
 The fastest reaction to a [[Command]] is always incentivised in order to offer every player the opportunity to push his limits and to let him finish an easy [[Encounter]] as fast as possible.
 
 [[Action]]s can track more buttons and demand more presses to increase the possibility space and thus make more mistakes possible.
+^possibility-space
 
 The "Here" instruction simulate and surpasses the gameplay that rhythm games offers.
 "Not Here" is a simple and intuitive subversion of "Here" and they could be combined to emerge new [[Command]]s.
 ^instructions
 
 The Letters of a [[Command]] will be written left to right in the order of presses. Numbers may will be written before them to indicate that the letter skips spots in the order of presses.
+
+The order of the buttons and the associated [[Command#instruction|Instructions]] are randomized in order to force the player to determine a correct [[Action]] from the entire possibility space for every [[Command]] under time pressure.  
+^random-command
