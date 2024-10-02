@@ -29,3 +29,17 @@ The Letters of a [[Command]] will be written left to right in the order of press
 
 The order of the buttons and the associated [[Command#instruction|Instructions]] are randomized in order to force the player to determine a correct [[Action]] from the entire possibility space for every [[Command]] under time pressure.  
 ^random-command
+
+In the Dungeon the player will choose his next challenge (for now) in order to give him a light mental exercise in between the exhausting [[Encounter]]s.
+^think
+
+Some noteworthy events will happened randomly in order to make memorable moments that will stand out from the rest of the game.
+^identity
+
+The game will escalate in difficulty for as long as players will push through the [[Boss]]es.
+^escalation
+
+Better play and risk taking will be reworded with [[Hp]].
+^incentive
+
+Players that are too good for the [[Encounter]]s there facing could progress faster then others and to make them more interesting with [[Challenge]]s.
