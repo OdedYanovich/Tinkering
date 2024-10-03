@@ -39,7 +39,10 @@ Some noteworthy events will happened randomly in order to make memorable moments
 The game will escalate in difficulty for as long as players will push through the [[Boss]]es.
 ^escalation
 
-Better play and risk taking will be reworded with [[Hp]].
+Hp is a long term incentive for [[#desired behaviour]] by offering alternative to reptation (the roguelike way).
 ^incentive
+
+## desired behaviour
+Faster reaction to commands
 
 Players that are too good for the [[Encounter]]s there facing could progress faster then others and to make them more interesting with [[Challenge]]s.

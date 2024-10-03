@@ -1,6 +1,6 @@
 The Dungeon is the main menu of the game. [[Dungeon#^necessary-state|why?]]
 Hear you can:
-- Pick an encounter. (Regular/[[Boss]]) [[Encounter#^dungeon-role|why?]]
+- Pick an encounter's [[status]].  [[Encounter#^dungeon-role|why?]]
 - Accept a [[Challenge]].
 - Switch a [[Layer]].
 - Change the [[Options]].
