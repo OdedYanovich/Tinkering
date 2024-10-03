@@ -1,10 +1,7 @@
-[[Hp]] ticks down during an encounter, and the run ends with it. [[Rushing Dungeons 1 Goals#^incentive|why?]]
+Hp ticks down during an encounter, and the run ends with it. [[miscellaneous#^incentive|why?]]
 
-At any moment, the player is instructed, and once he [[Action|acts]],
-[[Progress]] is effected by the whether $Action \in Command$  then the [[Command]] is replaced. [[Rushing Dungeons 1 Goals#^simplicity|why?]]
+At any moment, there is a [[Command]] that waits of an [[Action]],
+[[Progress]] is effected by the whether $Action \in Command$  then the is replaced. [[miscellaneous#^response-pipeline|why?]]
 
- Ones [[Progress]] reach 100% the encounter ends and the player returns to the dungeon
- 
-# Why
+ When Progress is filled, the encounter ends and the player returns to the dungeon. [[miscellaneous#^incentive|why?]]
 
-Hp is used to incentivise  without locking progress behind any challenge but incompetence will still be 

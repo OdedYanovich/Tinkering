@@ -4,7 +4,7 @@ Gameplay is assumed to compel by instructing the player to press the buttons (or
 
 The core-mechanics are only relevant during an [[Encounter]] in order to let the game give a breather between encounters and to give them in a satisfying order.
 
-The game response to presses only in a sequence that are called [[Action]]s
+The mechanics response to presses in sequences that are called [[Action]]s.
 
 [[Command]]s are requirements and they are displayed as a list of characters for ease of implementation and removing ambiguity.
 ^command-goal
@@ -30,19 +30,16 @@ The Letters of a [[Command]] will be written left to right in the order of press
 The order of the buttons and the associated [[Command#instruction|Instructions]] are randomized in order to force the player to determine a correct [[Action]] from the entire possibility space for every [[Command]] under time pressure.  
 ^random-command
 
-In the Dungeon the player will choose his next challenge (for now) in order to give him a light mental exercise in between the exhausting [[Encounter]]s.
-^think
-
-Some noteworthy events will happened randomly in order to make memorable moments that will stand out from the rest of the game.
+randomness can make events memorable and keep decisions engaging after repetition.
 ^identity
 
-The game will escalate in difficulty for as long as players will push through the [[Boss]]es.
+The game will escalate in difficulty for as long as players will push through the [[status#Boss|Bosses]].
 ^escalation
 
-Hp is a long term incentive for [[#desired behaviour]] by offering alternative to reptation (the roguelike way).
+Hp/progress is an incentive for:
+Faster reaction to commands.
+Taking risks.
 ^incentive
 
-## desired behaviour
-Faster reaction to commands
-
 Players that are too good for the [[Encounter]]s there facing could progress faster then others and to make them more interesting with [[Challenge]]s.
+

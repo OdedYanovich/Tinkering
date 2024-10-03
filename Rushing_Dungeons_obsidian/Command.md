@@ -1,22 +1,22 @@
-A command is a $\mathbb{N}$ long list of letters and numbers that tells the player which [[Action]] will give [[Progress]]. [[Rushing Dungeons 1 Goals#^command-goal|Why?]]
+A command is a $\mathbb{N}$ long list of letters and numbers that tells the player which [[Action]] will give Progress. [[miscellaneous#^command-goal|Why?]]
 
-A command is made, kept then checked. [[Rushing Dungeons 1 Goals#^response-pipeline|Why?]]
+A command is made, kept then checked. [[miscellaneous#^response-pipeline|Why?]]
 
 # Command Making
 Every command in the [[Encounter]] will follow [[Encounter Handler|criteria]] like:
 - How many buttons are tracked by an [[Action]]
 - How many presses are needed for an [[Action]]
 - The [[#Instruction]]s that might be in the command
-[[Rushing Dungeons 1 Goals#^possibility-space|why?]]
+[[miscellaneous#^possibility-space|why?]]
 
-The [[Command]]'s buttons will be distributed randomly across the [[Action]]s with the [[#instruction]]s associated with them randomly. [[Rushing Dungeons 1 Goals#^random-command|Why?]]
+The [[Command]]'s buttons will be distributed randomly across the [[Action]]s with the [[#instruction]]s associated with them randomly. [[miscellaneous#^random-command|Why?]]
 
 # instruction
 There are 3 types of instructions:
 - Here
 - Not Here
 - Mix
-[[Rushing Dungeons 1 Goals#^instructions|Why?]]
+[[miscellaneous#^instructions|Why?]]
 
 # Command Checking 
 
