@@ -1,12 +1,6 @@
 The Dungeon is the main menu of the game. [[Dungeon#^necessary-state|why?]]
 Hear you can:
 - Pick an encounter's [[status]].  [[Encounter#^dungeon-role|why?]]
-- Accept a [[Challenge]].
-- Switch a [[Layer]].
-- Change the [[Options]].
-- Accept [[Deal]]s . Why?
-
-# Why
-Encounters are tense, Dungeons aren't, there isn't a reason to add additional states for the game beyond an options menu.
-^necessary-state
-
+- Switch a [[Layer]]. [[miscellaneous#^escalation|why?]]
+- Open the [[Options]].
+- Accept [[Deal]]s . [[miscellaneous#^identity|why?]]

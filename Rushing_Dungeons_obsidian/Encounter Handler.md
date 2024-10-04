@@ -1,0 +1,1 @@
+Provides a [[Command#Criteria|Criteria]] when an [[Encounter]] begins.
