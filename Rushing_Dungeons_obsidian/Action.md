@@ -1,3 +1,8 @@
-An action is a record of the relevant buttons presses sorted by order.
+a = [[Subject Matter#Action|action]], p = relevant button press
 
-An action will be read only after he was filled.
+c(x, y) = x  contain y by order
+$c(\exists! a,\forall p)$ [[|Why?]]
+
+m = max size
+e(x) = x is used by an external function
+$|\forall p| >m \implies e(\forall a)$ [[|Why?]]

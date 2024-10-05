@@ -1,0 +1,4 @@
+[workspace]
+
+members = ["testing", "temporary"]
+resolver = "2"
