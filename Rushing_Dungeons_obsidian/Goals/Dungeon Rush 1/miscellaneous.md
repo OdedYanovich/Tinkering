@@ -1,33 +1,26 @@
-Rushing Dungeons is made for the gameplay and everything else is in because constant tension is insufficient for a game.
+The player is instructed to press the buttons according to [[Command]]s during an [[Encounter]]. [[Reasoning#^compelling|Why?]] 
 
-Gameplay is assumed to compel by instructing the player to press the buttons (or any other from of input but in this docs the input method will always be referred to as buttons) correctly.
+Button presses are converted to [[Action]]s before passing onwards.
 
-The core-mechanics are only relevant during an [[Encounter]] in order to let the game give a breather between encounters and to give them in a satisfying order.
-
-The mechanics response to presses in sequences that are called [[Action]]s.
-
-[[Command]]s are requirements and they are displayed as a list of characters for ease of implementation and removing ambiguity.
+Each [[Command]] is displayed as a list of characters. [[Reasoning#^char|Why?]] 
 ^command-goal
 
- One [[Command]] is showed at a time and one [[Action]] responses to it in order to make it easier to reason about the ideal requirement for the presses.
+ During an [[Encounter]], one [[Command]] is showed until a responding [[Action]]. [[Reasoning#^pipelline|Why?]] 
 ^response-pipeline
 
-Every [[Action]] will contain elements that are unique from each other to prevent double presses.
+The keys in an [[Action]] are unique and irrelevant until the Action is full. [[Reasoning#^double-press|Why?]] 
 
-The buttons will be held until the [[Action]] is completed to make the uniqueness of the presses intuitive, to let the player cancel an [[Action]] by releasing a button and to give Rushing Dungeons a feel different then other rhythm games.
-
-The fastest reaction to a [[Command]] is always incentivised in order to offer every player the opportunity to push his limits and to let him finish an easy [[Encounter]] as fast as possible.
+Faster reaction is incentivised during an [[Encounter]]. [[Reasoning#^reaction-time|Why?]] 
 
 [[Action]]s can track more buttons and demand more presses to increase the possibility space and thus make more mistakes possible.
 
-[[Encounter]]s are distinct from each other.
+[[Encounter]]s distinguishing themselves from each other. [[Reasoning#^repatation|Why?]] 
 ^level
 
-The "Here" instruction simulate and surpasses the gameplay that rhythm games offers.
-"Not Here" is a simple and intuitive subversion of "Here" and they could be combined to emerge new [[Command]]s.
+A [[Command]] limits the set of wanted [[Action]]s by associating/disassociating a buttons with an order
 ^instructions
 
-The Letters of a [[Command]] will be written left to right in the order of presses. Numbers may will be written before them to indicate that the letter skips spots in the order of presses.
+A [[Command]] is displayed left to right in the order of presses. Numbers may will be written before them to indicate that the letter skips spots in the order of presses.
 
 The order of the buttons and the associated [[Command#instruction|Instructions]] are randomized in order to force the player to determine a correct [[Action]] from the entire possibility space for every [[Command]] under time pressure.  
 ^random-command

@@ -28,6 +28,8 @@ There are 3 types of instructions:
 - Mix
 [[miscellaneous#^instructions|Why?]]
 # Command Making
+## declaration
 
+## definition
 # Command Checking 
 The command is iterated upon and each instruction within it will index the responding [[Action]] to check whether the instruction is obeyed. 
