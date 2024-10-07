@@ -20,7 +20,7 @@ The fastest reaction to a [[Command]] is always incentivised in order to offer e
 
 [[Action]]s can track more buttons and demand more presses to increase the possibility space and thus make more mistakes possible.
 
-[[Encounter]]s main way to be distinct from one another is with [[Command#Criteria|Criteria]].
+[[Encounter]]s are distinct from each other.
 ^level
 
 The "Here" instruction simulate and surpasses the gameplay that rhythm games offers.
