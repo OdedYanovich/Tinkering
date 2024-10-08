@@ -1,4 +1,4 @@
-The player is instructed to press the buttons according to [[Command]]s during an [[Encounter]]. [[Reasoning#^compelling|Why?]] 
+Player are incentivised to press the buttons according to [[Command]]s during an [[Encounter]]. [[Reasoning#^excluding-possibilities|Why?]] 
 
 Button presses are converted to [[Action]]s before passing onwards.
 
@@ -14,26 +14,27 @@ Faster reaction is incentivised during an [[Encounter]]. [[Reasoning#^reaction-t
 
 [[Action]]s can track more buttons and demand more presses to increase the possibility space and thus make more mistakes possible.
 
-[[Encounter]]s distinguishing themselves from each other. [[Reasoning#^repatation|Why?]] 
+[[Encounter]]s distinguishing themselves from each other. [[Reasoning#^excluding-possibilities|Why?]] 
 ^level
 
-A [[Command]] limits the set of wanted [[Action]]s by associating/disassociating a buttons with an order
+A [[Command]] limits the set of wanted [[Action]]s by indexing buttons with the command's order.
 ^instructions
 
-A [[Command]] is displayed left to right in the order of presses. Numbers may will be written before them to indicate that the letter skips spots in the order of presses.
+A [[Command]] is displayed According to it's order. 
 
-The order of the buttons and the associated [[Command#instruction|Instructions]] are randomized in order to force the player to determine a correct [[Action]] from the entire possibility space for every [[Command]] under time pressure.  
+Numbers are displayed to express gaps between indexed indices.
+
+Random indexing are associating random buttons to random indices. [[Reasoning#^excluding-possibilities|Why?]] 
 ^random-command
-
- Memorable events and  repetition resistant decision making will be achieved with tools like randomness.
-^identity
 
 The game will escalate in difficulty for as long as players will push through the [[status#Boss|Bosses]].
 ^escalation
 
 Hp/progress is an incentive for:
 Faster reaction to commands.
-Taking risks.
+Taking risks. [[Reasoning#^excluding-possibilities|Why?]] 
 ^incentive
 
-Players that are too good for the [[Encounter]]s there facing could progress faster then others and to make them more interesting with [[Challenge]]s.
+The player's reaction time is always incentivised to decrease and is required to meet the [[Layer]]'s minimum.
+
+There is a hard and easy minimum that the player can choose by picking deals

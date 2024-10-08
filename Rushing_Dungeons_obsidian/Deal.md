@@ -1,4 +1,4 @@
-A deal makes at least 1 positive and 1 negative effect, both selected randomly with a ratio that a random number is added to it. [[miscellaneous#^identity|why?]]
+A deal applies random amount of selected randomly positive negative effects, the effects are valued and summed to be in a range. [[Reasoning#^excluding-possibilities|why?]] 
 
 Effects could be on:
 - Hp/Progress

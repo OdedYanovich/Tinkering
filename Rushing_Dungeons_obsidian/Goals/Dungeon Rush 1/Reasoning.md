@@ -1,6 +1,3 @@
-Dungeon Rush is design to compel by instructing the player to press the buttons correctly.
-^compelling
-
 The core-mechanics are only relevant during an [[Encounter]] in order to let the game give a breather between them and to control their order.
 ^pipelline
 
@@ -15,5 +12,5 @@ Double pressing is annoying.
 The player can improve by becoming faster and finish easy [[Encounter]]s faster.
 ^reaction-time
 
-An experience is not expected to entertain after intense reptation.
-^repatation
+Determining a subset of known possibilities to fit a subset of known restrictions is fun.  
+^excluding-possibilities
