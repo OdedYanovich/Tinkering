@@ -1,4 +1,4 @@
-The core-mechanics are only relevant during an [[Encounter]] in order to let the game give a breather between them and to control their order.
+The game need times without the core mechanics.
 ^pipelline
 
 Characters are easy to display.
@@ -14,3 +14,8 @@ The player can improve by becoming faster and finish easy [[Encounter]]s faster.
 
 Determining a subset of known possibilities to fit a subset of known restrictions is fun.  
 ^excluding-possibilities
+
+Allowing for sequences of different length will make things complicated.
+^short-sequence
+
+[[Encounter]]s can 

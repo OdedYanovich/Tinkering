@@ -1,7 +1,7 @@
 d = data
 
 i(x) = x is an instruction,
-$\forall d(c\in d\Longrightarrow i(d)$ [[|Why?]]
+$\forall d(d\in c\Longleftrightarrow i(d)$ [[|Why?]]
 
 i = instruction
 
