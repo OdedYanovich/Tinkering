@@ -19,10 +19,10 @@ $c(\exists_{1}m)$ [[miscellaneous#^response-pipeline|Why?]]
 # Criteria
 A set of commands that an [[Encounter]] may require.
 
-The command buttons will be distributed randomly across the [[Action]]s with the [[#instruction]]s associated with them randomly. [[miscellaneous#^random-command|Why?]]
+The command buttons will be distributed randomly across the [[Action]]s with the [[#Relations]]s associated with them randomly. [[miscellaneous#^random-command|Why?]]
 
-# instruction
-There are 3 types of instructions:
+# Relations
+There are 3 types of Relations:
 - Here
 - Not Here
 - Mix
@@ -33,3 +33,4 @@ There are 3 types of instructions:
 ## definition
 # Command Checking 
 The command is iterated upon and each instruction within it will index the responding [[Action]] to check whether the instruction is obeyed. 
+
