@@ -14,10 +14,11 @@ $e()\implies (\exists_{1} c(d(c)\land a()\implies r(c)))$ [[Reasoning#^pipelline
 ^response-pipeline
 
  a = [[Action]], 
-
 k/y = key,
 c(x , y) = x contain y
 $\forall a \forall k \forall y(c(a,k)\land c(a,y)\implies x\neq y)$ [[Reasoning#^double-press|Why?]]
+
+ a = [[Action]], 
 r(x) = x is relevant
 f(x) = x is full
 $\forall a(f(a) \Longleftrightarrow r(a)))$ [[Reasoning#^short-sequence|Why?]] 
