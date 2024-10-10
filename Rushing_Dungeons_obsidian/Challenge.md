@@ -7,7 +7,7 @@ o(x) = current [[Command]] $\owns x$
 $\exists c\exists a(h(a)\wedge e(c,a)\wedge o(a)\implies r(c,a))$ [[|Why?]]
 
  c = challenge,
-r(x) = reword is given
+r() = reword is given
 $|c|==0\implies r()$ [[|Why?]]
 
 

@@ -22,8 +22,8 @@ The command buttons will be distributed randomly across the [[Action]]s with the
 # Level
 A set of potential commands.
 
-# Relations
-There are 3 types of Relations:
+# Sign
+There are 3 types of Sign:
 - Here
 - Not Here
 - Mix
@@ -32,6 +32,7 @@ There are 3 types of Relations:
 ## declaration
 
 ## definition
+
 # Command Checking 
 The command is iterated upon and each instruction within it will index the responding [[Action]] to check whether the instruction is obeyed. 
 
