@@ -1,4 +1,3 @@
-
-$criteria \ni command \ni instruction = ((button,index), property)$
-$Criteria Handler \xRightarrow[]{\mbox{criterion}}Encounter$
+$Level \ni command \ni instruction = ((button,index), relation)$
+$Level Handler \xRightarrow[]{\mbox{criterion}}Encounter$
 

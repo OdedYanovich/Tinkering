@@ -1,9 +1,9 @@
 A deal applies random amount of selected randomly positive negative effects, the effects are valued and summed to be in a range. [[Reasoning#^excluding-possibilities|why?]] 
 
-Deals will let players replace the complexity of the criteria with reaction time.
+Deals will let players replace the complexity of Levels with reaction time.
 
-Effects could be on:
+Effects may impact:
 - Hp/Progress
-- [[Encounter]]'s effect on Hp/Progress
-- [[Encounter]]'s [[Encounter Handler|criteria]]
-- [[Challenge]]
+- [[Encounter]]'s change of Hp/Progress
+- Level
+- [[Challenge]] 

@@ -50,4 +50,5 @@ Taking risks. [[Reasoning#^excluding-possibilities|Why?]]
 
 The player's reaction time is always incentivised to decrease and is required to meet the [[Layer]]'s minimum.
 
-There is a hard and easy minimum that the player can choose by picking deals.
+Players can simplify Levels with [[Deal]]s.
+^custom-difficulty
