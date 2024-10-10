@@ -1,17 +1,20 @@
-Players are incentivised to press the buttons according to [[Command]]s during an [[Encounter]]. [[Reasoning#^excluding-possibilities|Why?]] 
+The main mechanics will only be used during in game events that are called [[Encounter]]s. [[Reasoning#^pipelline|Why?]] 
 
-Button presses are converted to [[Action]]s before passing onwards.
+The main mechanics incentivising players to play according to requirements that are called [[Command]]s. [[Reasoning#^excluding-possibilities|Why?]] 
+^commanding
+
+[[Command]]s aren't mixed. [[Reasoning#^small-start|Why?]] 
+^simple-commands
+d = data, c = [[Command]],
+i(x) = x is an instruction,
+$\forall d(d\in c\Longleftrightarrow i(d)$ 
+
+p = relevant button press, m = max size
+i(x) = x is an Action that impacts the game
+$\forall p(|p|>m \implies i(p))$ 
 
 Each [[Command]] is displayed as a list of characters. [[Reasoning#^char|Why?]] 
 ^command-goal
-
-c = [[Command]], 
-e() = during an [[Encounter]]
-d(x) = x is displayed
-a() = [[Action]] was filled
-r(x) = x is replaced
-$e()\implies (\exists_{1} c(d(c)\land a()\implies r(c)))$ [[Reasoning#^pipelline|Why?]] 
-^response-pipeline
 
  a = [[Action]], 
 k/y = key,
@@ -43,9 +46,7 @@ Random indexing are associating random buttons to random indices. [[Reasoning#^e
 The game will escalate in difficulty for as long as players will push through the [[status#Boss|Bosses]].
 ^escalation
 
-Hp/progress is an incentive for:
-Faster reaction to commands.
-Taking risks. [[Reasoning#^excluding-possibilities|Why?]] 
+The core mechanics incentivising behaviour with Hp/progress. [[Reasoning#^excluding-possibilities|Why?]] 
 ^incentive
 
 The player's reaction time is always incentivised to decrease and is required to meet the [[Layer]]'s minimum.

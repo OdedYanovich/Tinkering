@@ -1,7 +1,7 @@
-Hp ticks down during an encounter, and the run ends with it. [[Goals/Dungeon Rush 1/miscellaneous#^incentive|why?]]
+c = [[Command]], 
+d(x) = x is displayed
+a = [[Action]] 
+r(x) = x is replaced and Progress is boosted
+$e()\implies (\exists_{1} c(d(c)\land a\in c\implies r(c)))$ [[Goals/Dungeon Rush 1/miscellaneous#^commanding|Why Command matter?]], [[Goals/Dungeon Rush 1/miscellaneous#^simple-commands|Why 1 command?]] 
 
-At any moment, there is a [[Command]] that waits of an [[Action]],
-Progress is effected by the whether $Action \in Command$  then the is replaced. [[Goals/Dungeon Rush 1/miscellaneous#^response-pipeline|why?]]
-
- When Progress is filled, the encounter ends and the player returns to the dungeon. [[Goals/Dungeon Rush 1/miscellaneous#^incentive|why?]]
-
+The Encounter end with the first of the Hp/Progress bar. Victory for the Progress, run end for the Hp. [[Goals/Dungeon Rush 1/miscellaneous#^incentive|why?]] 

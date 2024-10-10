@@ -1,4 +1,0 @@
-^Action
-_
-^Command
-__
