@@ -1,8 +1,3 @@
-y = displayed
-d = data
-c(x) = x is a character
-$\forall d(y\ni d\Longrightarrow c(d)$ [[Goals/Dungeon Rush 1/miscellaneous#^command-goal|Why?]]
-
 c(x) = x is current
 i = instruction
 a = Action,

@@ -10,7 +10,10 @@ During an [[Encounter]], a single [[Action]] is effecting a single [[Command]] a
 Double pressing is annoying.
 ^double-press
 
-The player can improve by becoming faster and finish easy [[Encounter]]s faster.
+Regret opportunity is desired.
+^cenacle-action
+
+Improvement is reworded with time investment.
 ^reaction-time
 
 Determining a subset of known possibilities according to a subset of known restrictions is fun.  

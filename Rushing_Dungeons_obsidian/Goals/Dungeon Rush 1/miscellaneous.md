@@ -5,6 +5,7 @@ The main mechanics incentivising players to play according to requirements that 
 
 [[Command]]s aren't mixed. [[Reasoning#^small-start|Why?]] 
 ^simple-commands
+
 d = data, c = [[Command]],
 i(x) = x is an instruction,
 $\forall d(d\in c\Longleftrightarrow i(d)$ 
@@ -13,22 +14,23 @@ p = relevant button press, m = max size
 i(x) = x is an Action that impacts the game
 $\forall p(|p|>m \implies i(p))$ 
 
-Each [[Command]] is displayed as a list of characters. [[Reasoning#^char|Why?]] 
-^command-goal
+d = displayed, c = character
+i = $Instruction\in Current Command$
+$\forall c(c\in i\implies c\in d)$ [[Reasoning#^char|Why?]] 
 
- a = [[Action]], 
-k/y = key,
+ a = Action, 
+p/b = button press,
 c(x , y) = x contain y
-$\forall a \forall k \forall y(c(a,k)\land c(a,y)\implies x\neq y)$ [[Reasoning#^double-press|Why?]]
+$\forall a \forall p \forall b(c(a,p)\land c(a,b)\implies p\neq b)$ [[Reasoning#^double-press|Why?]]
 
- a = [[Action]], 
+ a = Action
 r(x) = x is relevant
 f(x) = x is full
-$\forall a(f(a) \Longleftrightarrow r(a)))$ [[Reasoning#^short-sequence|Why?]] 
+$\forall a(f(a) \Longleftrightarrow r(a)))$ [[Reasoning#^short-sequence|Why one press?]] [[Reasoning#^cenacle-action|Why cenacle?]] 
 
 Faster reaction is incentivised during an [[Encounter]]. [[Reasoning#^reaction-time|Why?]] 
 
-The buttons and presses that defines an [[Action]] is determined for each [[Encounter]]. [[Reasoning#^excluding-possibilities|Why?]] 
+The buttons and presses that defines an Action is determined for each [[Encounter]]. [[Reasoning#^excluding-possibilities|Why?]] 
 
 [[Encounter]]s distinguishing themselves from each other. [[Reasoning#^excluding-possibilities|Why?]] 
 ^level
