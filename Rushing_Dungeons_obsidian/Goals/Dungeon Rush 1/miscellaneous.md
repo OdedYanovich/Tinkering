@@ -26,6 +26,9 @@ A [[Command]] limits the set of wanted [[Action]]s by indexing buttons with the 
 
 A [[Command]] is displayed according to it's order. 
 
+An opportunity to decide how to react to information will be given before the option to make the action.
+^forsite
+
 Numbers are displayed to express gaps between indexed indices.
 
 Random indexing is associating random buttons to random indices. [[Reasoning#^excluding-possibilities|Why?]] 
