@@ -10,23 +10,9 @@ d = data, c = [[Command]],
 i(x) = x is an instruction,
 $\forall d(d\in c\Longleftrightarrow i(d)$ 
 
-p = relevant button press, m = max size
-i(x) = x is an Action that impacts the game
-$\forall p(|p|>m \implies i(p))$ 
-
 d = displayed, c = character
 i = $Instruction\in Current Command$
 $\forall c(c\in i\implies c\in d)$ [[Reasoning#^char|Why?]] 
-
- a = Action, 
-p/b = button press,
-c(x , y) = x contain y
-$\forall a \forall p \forall b(c(a,p)\land c(a,b)\implies p\neq b)$ [[Reasoning#^double-press|Why?]]
-
- a = Action
-r(x) = x is relevant
-f(x) = x is full
-$\forall a(f(a) \Longleftrightarrow r(a)))$ [[Reasoning#^short-sequence|Why one press?]] [[Reasoning#^cenacle-action|Why cenacle?]] 
 
 Faster reaction is incentivised during an [[Encounter]]. [[Reasoning#^reaction-time|Why?]] 
 
@@ -42,7 +28,7 @@ A [[Command]] is displayed according to it's order.
 
 Numbers are displayed to express gaps between indexed indices.
 
-Random indexing are associating random buttons to random indices. [[Reasoning#^excluding-possibilities|Why?]] 
+Random indexing is associating random buttons to random indices. [[Reasoning#^excluding-possibilities|Why?]] 
 ^random-command
 
 The game will escalate in difficulty for as long as players will push through the [[status#Boss|Bosses]].
