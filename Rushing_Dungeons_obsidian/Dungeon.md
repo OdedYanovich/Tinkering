@@ -1,6 +1,6 @@
 The Dungeon is the main menu of the game. [[|why?]]
 Hear you can:
-- Pick an encounter's [[status]].  [[Encounter#^dungeon-role|why?]]
+- Pick an encounter's [[status]]. 
 - Switch a [[Layer]]. [[Goals/Dungeon Rush 1/miscellaneous#^escalation|why?]]
 - Open the [[Options]].
 - Accept [[Deal]]s . [[Goals/Dungeon Rush 1/miscellaneous#^identity|why?]]

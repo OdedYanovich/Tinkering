@@ -37,7 +37,7 @@ Random indexing is associating random buttons to random indices. [[Reasoning#^ex
 The game will escalate in difficulty for as long as players will push through the [[status#Boss|Bosses]].
 ^escalation
 
-The core mechanics incentivising behaviour with Hp/progress. [[Reasoning#^excluding-possibilities|Why?]] 
+The core mechanics incentivising behaviour with Hp. [[Reasoning#^excluding-possibilities|Why?]] 
 ^incentive
 
 The player's reaction time is always incentivised to decrease and is required to meet the [[Layer]]'s minimum.
