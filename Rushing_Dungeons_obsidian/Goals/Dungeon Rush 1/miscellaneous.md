@@ -21,10 +21,10 @@ The buttons and presses that defines an Action is determined for each [[Encounte
 [[Encounter]]s distinguishing themselves from each other. [[Reasoning#^excluding-possibilities|Why?]] 
 ^level
 
-A [[Command]] limits the set of wanted [[Action]]s by indexing buttons with the command's order.
+Commands making a subset of the level that [[Action]] needs to be in.
 ^instructions
 
-A [[Command]] is displayed according to it's order. 
+A Command is displayed according to it's order. 
 
 An opportunity to decide how to react to information will be given before the option to make the action.
 ^forsite
