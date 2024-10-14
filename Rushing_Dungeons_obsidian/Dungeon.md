@@ -1,10 +1,4 @@
-The Dungeon is the main menu of the game. [[|why?]]
-Hear you can:
-- Pick an encounter's [[status]]. 
-- Switch a [[Layer]]. [[Goals/Dungeon Rush 1/miscellaneous#^escalation|why?]]
-- Open the [[Options]].
-- Accept [[Deal]]s . [[Goals/Dungeon Rush 1/miscellaneous#^identity|why?]]
-
-Sand a Level to an [[Encounter]]. [[Goals/Dungeon Rush 1/miscellaneous#^level|why options?]] [[Goals/Dungeon Rush 1/miscellaneous#^custom-difficulty|Why?]] 
-Each Level contain 3 counters: button, press and Command.
+All game state transitions are either from or to the Dungeon. [[Goals/Dungeon Rush 1/miscellaneous#^canter-state|Why?]]
+The player can restart at any unlocked Layer at any point. [[Goals/Dungeon Rush 1/miscellaneous#^escalation|why?]]
+Each Layer starts with 2 Encounters to choose each beaten Encounter will unlock another 2. 
 

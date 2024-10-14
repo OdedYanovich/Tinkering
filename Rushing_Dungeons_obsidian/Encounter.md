@@ -15,5 +15,5 @@ The amount of buttons and presses of each Action is taken from the received leve
 An array of indices, long as the Instruction count, will reference relevant buttons.
 The referenced buttons will be displayed in order.
 # Command Checking 
-The amount of fitting instructions will be reduced from the enemy's Hp.
+The amount of fitting instructions will be reduced from the enemy's hp.
 

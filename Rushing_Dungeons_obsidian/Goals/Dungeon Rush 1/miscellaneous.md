@@ -1,12 +1,12 @@
 The main mechanics will only be used during in game events that are called [[Encounter]]s. [[Reasoning#^pipelline|Why?]] 
 
-The main mechanics incentivising players to play according to requirements that are called [[Command]]s. [[Reasoning#^excluding-possibilities|Why?]] 
+The main mechanics incentivising players to play according to requirements that are called Commands. [[Reasoning#^excluding-possibilities|Why?]] 
 ^commanding
 
-[[Command]]s aren't mixed. [[Reasoning#^small-start|Why?]] 
+Commands aren't mixed. [[Reasoning#^small-start|Why?]] 
 ^simple-commands
 
-d = data, c = [[Command]],
+d = data, c = Command,
 i(x) = x is an instruction,
 $\forall d(d\in c\Longleftrightarrow i(d)$ 
 
@@ -34,13 +34,13 @@ Numbers are displayed to express gaps between indexed indices.
 Random indexing is associating random buttons to random indices. [[Reasoning#^excluding-possibilities|Why?]] 
 ^random-command
 
-The game will escalate in difficulty for as long as players will push through the [[status#Boss|Bosses]].
+The game can escalate in difficulty forever.
 ^escalation
 
-The core mechanics incentivising behaviour with Hp. [[Reasoning#^excluding-possibilities|Why?]] 
+The core mechanics incentivising behaviour with Hp. 
 ^incentive
 
 The player's reaction time is always incentivised to decrease and is required to meet the [[Layer]]'s minimum.
 
-Players can simplify Levels with [[Deal]]s.
-^custom-difficulty
+If all of the states can transition to and from a main state, then all added states will require the same implementations.
+^canter-state
