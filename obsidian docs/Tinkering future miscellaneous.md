@@ -1,3 +1,7 @@
+---
+type: reason
+---
+
 [[Encounter]]s aren't necessarily random.
 
 Operations on Levels.

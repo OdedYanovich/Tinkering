@@ -1,3 +1,6 @@
+---
+type: goal
+---
 The sound implies that players are tinkering with a machine. [[Reasoning#^no-music|Why?]] 
 
 They're sounds for each button press.

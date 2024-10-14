@@ -1,3 +1,6 @@
+---
+type: reason
+---
 The core mechanics aren't expected to be used constantly.
 ^pipelline
 

@@ -1,3 +1,7 @@
+---
+type: goal
+---
+
 The main mechanics will only be used during in game events that are called [[Encounter]]s. [[Reasoning#^pipelline|Why?]] 
 
 The main mechanics incentivising players to play according to requirements that are called Commands. [[Reasoning#^excluding-possibilities|Why?]] 

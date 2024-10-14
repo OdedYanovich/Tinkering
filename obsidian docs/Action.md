@@ -1,3 +1,6 @@
+---
+type: goal
+---
 
  a = Action, 
 p/b = button press,

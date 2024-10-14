@@ -1,3 +1,7 @@
+---
+type: game state
+---
+
 The options are:
 - volume
 - credit

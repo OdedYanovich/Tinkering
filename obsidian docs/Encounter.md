@@ -1,12 +1,10 @@
-c = Command, 
-d(x) = x is displayed
-a = current Action 
-r(x) = x is replaced and enemy is damaged
-$\exists_{1} c(a\in c\implies r(c))$ [[Goals/Dungeon Rush 1/miscellaneous#^commanding|Why Command matter?]], [[Goals/Dungeon Rush 1/miscellaneous#^simple-commands|Why 1 command?]] 
+---
+type: game state
+---
 
-The Encounter's victor will be the only one left with hp. [[Goals/Dungeon Rush 1/miscellaneous#^incentive|why?]] 
-
-Let the player see the current Command and the next one at the same time. [[Goals/Dungeon Rush 1/miscellaneous#^forsite|Why?]] 
+Action will replace the current Command and every match between them will be reduce the enemy's hp.
+The Encounter's victor will be the only one left with hp. [[Tinkering 1 miscellaneous#^incentive|why?]] 
+Players sees the current Command and the next one at the same time. [[Tinkering 1 miscellaneous#^forsite|Why?]] 
 # initialization
 Possible Actions, enemy hp and attack are defined.
 then the game wait for the player to make the first move before attacking.
