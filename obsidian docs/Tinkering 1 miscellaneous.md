@@ -1,5 +1,5 @@
 ---
-type: goal
+goal: boundary
 ---
 
 The main mechanics will only be used during in game events that are called [[Encounter]]s. [[Reasoning#^pipelline|Why?]] 
@@ -12,7 +12,7 @@ Commands aren't mixed. [[Reasoning#^small-start|Why?]]
 
 d = data, c = Command,
 i(x) = x is an instruction,
-$\forall d(d\in c\Longleftrightarrow i(d)$ 
+$\forall d(d\in c\Longleftrightarrow i(d))$ 
 
 d = displayed, c = character
 i = $Instruction\in Current Command$

@@ -1,5 +1,5 @@
 ---
-type: goal
+goal: boundary
 ---
 The sound implies that players are tinkering with a machine. [[Reasoning#^no-music|Why?]] 
 

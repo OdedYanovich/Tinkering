@@ -1,5 +1,5 @@
 ---
-type: goal
+goal: boundary
 ---
 
  a = Action, 

@@ -1,5 +1,5 @@
 ---
-type: reason
+goal: reason
 ---
 
 [[Encounter]]s aren't necessarily random.

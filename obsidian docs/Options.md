@@ -1,5 +1,6 @@
 ---
-type: game state
+tags:
+  - game_state
 ---
 
 The options are:

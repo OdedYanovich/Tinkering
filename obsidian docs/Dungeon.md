@@ -1,5 +1,6 @@
 ---
-type: game state
+tags:
+  - game_state
 ---
 All game state transitions are either from or to the Dungeon. [[Tinkering 1 miscellaneous#^canter-state|Why?]]
 The player can restart at any unlocked Layer at any point. [[Tinkering 1 miscellaneous#^escalation|why?]]

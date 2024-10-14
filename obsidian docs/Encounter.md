@@ -1,5 +1,6 @@
 ---
-type: game state
+tags:
+  - game_state
 ---
 
 Action will replace the current Command and every match between them will be reduce the enemy's hp.
