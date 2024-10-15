@@ -1,7 +1,7 @@
 [package]
-name = "testing"
+name = "encounter"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-temporary = { path = "../temporary" }
+dungeon = { path = "../dungeon" }
