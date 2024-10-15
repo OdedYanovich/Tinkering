@@ -1,14 +1,19 @@
 pub trait GameState {
     fn visuals(s: &str);
-    fn background_music(){}
-    fn background_sound(){}
+    fn background_music() {}
+    fn background_sound() {}
     fn action_length() -> u8;
     fn optional() {}
     fn event(&self) {
-        Self::visuals("your under attack!");
+        Self::visuals("Your under attack!");
     }
 }
+pub type Action = std::collections::HashSet<char>;
 pub trait Dungeon: GameState {}
-pub trait Credit: GameState {}
-pub trait Options: GameState {}
-pub trait Encounter: GameState {}
+pub trait Credit: GameState + Transition {}
+pub trait Options: GameState + Transition {}
+pub trait Encounter: GameState + Transition {}
+pub trait Transition {
+    fn from_dungeon();
+    fn to_dungeon();
+}

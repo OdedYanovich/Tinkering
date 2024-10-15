@@ -1,4 +1,4 @@
-use dungeon::{Encounter, GameState};
+use dungeon::{Dungeon, GameState};
 
 struct Cli;
 impl GameState for Cli {
@@ -9,7 +9,7 @@ impl GameState for Cli {
         1
     }
 }
-impl Encounter for Cli {}
+impl Dungeon for Cli {}
 
 fn main() {
     let t = Cli;
