@@ -1,6 +1,5 @@
 ---
-tags:
-  - game_state
+game state: example
 ---
 
 The options are:

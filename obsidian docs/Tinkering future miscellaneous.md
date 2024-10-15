@@ -1,5 +1,5 @@
 ---
-goal: reason
+goal: boundary
 ---
 
 [[Encounter]]s aren't necessarily random.

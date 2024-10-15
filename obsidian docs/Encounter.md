@@ -1,6 +1,5 @@
 ---
-tags:
-  - game_state
+game state: example
 ---
 
 Action will replace the current Command and every match between them will be reduce the enemy's hp.
