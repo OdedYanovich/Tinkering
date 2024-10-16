@@ -4,5 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-encounter = { path = "../encounter" }
-dungeon = { path = "../dungeon" }
+core = { path = "../core" }

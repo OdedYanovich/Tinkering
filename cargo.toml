@@ -1,4 +1,4 @@
 [workspace]
 
-members = ["encounter", "cli", "dungeon", "action"]
+members = ["cli", "core"]
 resolver = "2"

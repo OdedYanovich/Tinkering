@@ -1,17 +1,13 @@
-use dungeon::{Dungeon, GameState};
+use core::state_machine::{run, Display};
 
-struct Cli;
-impl GameState for Cli {
-    fn visuals(s: &str) {
+struct Dungeon;
+impl Display for Dungeon {
+    fn show(s: &str) {
         println!("{s}");
     }
-    fn action_length() -> u8 {
-        1
-    }
+    fn play() {}
 }
-impl Dungeon for Cli {}
-
 fn main() {
-    let t = Cli;
-    GameState::event(&t);
+    let t = Dungeon;
+    run(&t);
 }

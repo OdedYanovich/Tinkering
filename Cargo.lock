@@ -3,27 +3,12 @@
 version = 3
 
 [[package]]
-name = "action"
-version = "0.1.0"
-dependencies = [
- "encounter",
-]
-
-[[package]]
 name = "cli"
 version = "0.1.0"
 dependencies = [
- "dungeon",
- "encounter",
+ "core",
 ]
 
 [[package]]
-name = "dungeon"
+name = "core"
 version = "0.1.0"
-
-[[package]]
-name = "encounter"
-version = "0.1.0"
-dependencies = [
- "dungeon",
-]
