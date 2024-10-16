@@ -1,3 +1,10 @@
+pub trait Action {
+    fn new() -> Self;
+    fn add(&mut self, press: char);
+    fn clear(&mut self);
+}
+struct Command;
+
 fn check_action(action: &str, command: IndexingTool) -> u8 {
     let mut result = 0;
     for (press, expected) in action.chars().zip(command) {

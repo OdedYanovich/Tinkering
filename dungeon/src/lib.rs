@@ -8,12 +8,11 @@ pub trait GameState {
         Self::visuals("Your under attack!");
     }
 }
-pub type Action = std::collections::HashSet<char>;
 pub trait Dungeon: GameState {}
-pub trait Credit: GameState + Transition {}
-pub trait Options: GameState + Transition {}
-pub trait Encounter: GameState + Transition {}
-pub trait Transition {
+// pub trait Credit: GameState + Transition {}
+// pub trait Options: GameState + Transition {}
+// pub trait Encounter: GameState + Transition {}
+pub trait Transition<A: Dungeon, B: GameState> {
     fn from_dungeon();
     fn to_dungeon();
 }
