@@ -26,7 +26,20 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "game state.md",
+                "file": "Tinkering future miscellaneous.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b5e2d73898aca6fc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Tinkering future restriction puzzle-action game.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -34,7 +47,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -53,7 +66,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"game state\"]",
+                "query": "[\"goal\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -100,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Options.md",
+                "file": "Tinkering future restriction puzzle-action game.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Options.md",
+                "file": "Tinkering future restriction puzzle-action game.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +142,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Options.md"
+                "file": "Tinkering future restriction puzzle-action game.md"
               }
             }
           },
@@ -172,14 +185,15 @@
   },
   "active": "1bf3b33f3f5174da",
   "lastOpenFiles": [
+    "Tinkering future miscellaneous.md",
+    "Tinkering future restriction puzzle-action game.md",
+    "Options.md",
     "Challenge.md",
     "game state.md",
     "Tinkering 1 miscellaneous.md",
     "Encounter.md",
     "Reasoning.md",
-    "Tinkering future miscellaneous.md",
     "game stat.md",
-    "Options.md",
     "Dungeon.md",
     "Enemy Maker.md",
     "Sound.md",
@@ -199,7 +213,6 @@
     "Color Scheme.md",
     "Subject Matter.md",
     "Goals/Dungeon Rush future",
-    "Floor.md",
     "Untitled.canvas",
     "progit.pdf",
     "Web_Audio_API_Boris_Smus.pdf",
