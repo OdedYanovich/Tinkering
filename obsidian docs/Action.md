@@ -1,7 +1,5 @@
 ---
-goal: boundary
-tags:
-  - code
+goal: code
 ---
 
  a = Action, 

@@ -1,6 +1,5 @@
 ---
-tags:
-  - code
+goal: code
 ---
 
 a = Action, c = Challenge,

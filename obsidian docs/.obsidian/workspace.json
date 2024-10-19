@@ -4,25 +4,86 @@
     "type": "split",
     "children": [
       {
-        "id": "5e6dda6fba8ed01a",
+        "id": "95091937197abfd3",
         "type": "tabs",
         "children": [
           {
-            "id": "2267427654d10da3",
+            "id": "cdcfaebf4025b8fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tinkering future Not Here implications.md",
+                "file": "items.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tinkering future Not Here implications"
+              "title": "items"
+            }
+          },
+          {
+            "id": "be9f53578f5072bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "stages.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "stages"
+            }
+          },
+          {
+            "id": "d71b9960ee21a297",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Multiplayer.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Multiplayer"
+            }
+          },
+          {
+            "id": "5fd8d11c63e8d6d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "shard game state.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "shard game state"
+            }
+          },
+          {
+            "id": "684a44e942195f3d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Action state machine.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Action state machine"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -41,10 +102,10 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"goal\"]",
+                "query": "[\"goal\":r",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               },
@@ -176,11 +237,23 @@
   },
   "active": "1bf3b33f3f5174da",
   "lastOpenFiles": [
-    "Tinkering future miscellaneous.md",
-    "Tinkering future Not Here implications.md",
-    "Options.md",
-    "Challenge.md",
+    "Multiplayer.md",
+    "shard game state.md",
+    "Action state machine.md",
+    "stages.md",
+    "items.md",
+    "sequence.md",
+    "brunches.md",
+    "preferred Commands.md",
+    "unique encounter's glyphs.md",
+    "alternative progression.md",
+    "time window.md",
+    "Action.md",
     "game state.md",
+    "Challenge.md",
+    "Tinkering future Not Here implications.md",
+    "Tinkering future miscellaneous.md",
+    "Options.md",
     "Tinkering 1 miscellaneous.md",
     "Encounter.md",
     "Reasoning.md",
@@ -189,20 +262,8 @@
     "Enemy Maker.md",
     "Sound.md",
     "Brainstorm.md",
-    "Action.md",
     "Score.md",
-    "Goals & Reasoning.md",
-    "traits.md",
     "quarries",
-    "Layer.md",
-    "Enemy.md",
-    "Deal.md",
-    "status.md",
-    "Command.md",
-    "Level Handler.md",
-    "Sign.md",
-    "Color Scheme.md",
-    "Subject Matter.md",
     "Goals/Dungeon Rush future",
     "Untitled.canvas",
     "progit.pdf",

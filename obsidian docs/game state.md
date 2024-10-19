@@ -1,6 +1,5 @@
 ---
-tags:
-  - code
+goal: code
 game state: idea
 ---
 The game is a state machine that is associated with:
