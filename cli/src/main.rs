@@ -1,13 +1,23 @@
-use core::state_machine::{run, Display};
+use core::state_machine::{run, Display, States};
 
-struct Dungeon;
-impl Display for Dungeon {
-    fn show(s: &str) {
+struct Cli;
+// impl StatesCliWrapper {
+//     fn new()->Self{
+
+//     }
+// }
+impl Display for Cli {
+    fn dungeon_identity() {
+        println!("you're in the Dungeon,\nAct!");
+    }
+    fn dungeon_information(s: &str) {
         println!("{s}");
     }
-    fn play() {}
 }
 fn main() {
-    let t = Dungeon;
-    run(&t);
+    let cli = Cli;
+    let state = States::new::<Cli>();
+    // loop{}
+    let action_button = 'a';
+    run(&cli, action_button);
 }
