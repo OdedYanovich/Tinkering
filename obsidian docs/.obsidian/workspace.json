@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "95091937197abfd3",
+        "id": "45ee31880e10d609",
         "type": "tabs",
         "children": [
           {
-            "id": "cdcfaebf4025b8fa",
+            "id": "9f5048433a40e532",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "unique encounter's glyphs.md",
+                "file": "The only note.md",
                 "mode": "source",
-                "backlinks": true,
+                "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "unique encounter's glyphs"
+              "title": "The only note"
             }
           }
         ]
@@ -36,49 +36,27 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d141869d9a29f722",
+            "id": "fcf2eeff0b6bb5e3",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"goal\":reas]",
+                "query": "tag:#goal/code",
                 "matchingCase": false,
                 "explainSearch": false,
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
               "title": "Search"
             }
-          },
-          {
-            "id": "70e42edbb4fb5f40",
-            "type": "leaf",
-            "state": {
-              "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
-            }
-          },
-          {
-            "id": "828a25ba0baea986",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 307.5
   },
   "right": {
     "id": "e3c2b88e7b72fb4f",
@@ -89,52 +67,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "13c4782386983dca",
+            "id": "76f096f0c0f0622e",
             "type": "leaf",
             "state": {
-              "type": "backlink",
+              "type": "tag",
               "state": {
-                "file": "Tinkering future Not Here implications.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
+                "sortOrder": "frequency",
+                "useHierarchy": true
               },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Tinkering future Not Here implications"
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
-            "id": "3cc0b99335e46559",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "Tinkering future Not Here implications.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Tinkering future Not Here implications"
-            }
-          },
-          {
-            "id": "a3cfbfd49493e872",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Tinkering future Not Here implications.md"
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Tinkering future Not Here implications"
-            }
-          },
-          {
-            "id": "1bf3b33f3f5174da",
+            "id": "d17105a77107f6c0",
             "type": "leaf",
             "state": {
               "type": "git-view",
@@ -142,66 +88,52 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "be4878b96b4cfa66",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": true,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 319.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "darlal-switcher-plus:Open in Headings Mode": false,
+      "darlal-switcher-plus:Open Symbols for the active editor": false,
+      "tags-overview:Tags overview": false,
+      "obsidian-plugin-tagged-documents-viewer:Tagged Documents Viewer": false
     }
   },
-  "active": "1bf3b33f3f5174da",
+  "active": "9f5048433a40e532",
   "lastOpenFiles": [
-    "items.md",
-    "stages.md",
-    "Multiplayer.md",
-    "shard game state.md",
-    "Action state machine.md",
-    "instructions.md",
-    "sequence.md",
-    "brunches.md",
-    "preferred Commands.md",
     "unique encounter's glyphs.md",
-    "alternative progression.md",
-    "time window.md",
-    "Action.md",
-    "game state.md",
-    "Challenge.md",
+    "The only note.md",
     "Tinkering future Not Here implications.md",
     "Tinkering future miscellaneous.md",
-    "Options.md",
     "Tinkering 1 miscellaneous.md",
-    "Encounter.md",
-    "Reasoning.md",
-    "game stat.md",
-    "Dungeon.md",
-    "Enemy Maker.md",
+    "time window.md",
+    "stages.md",
     "Sound.md",
+    "sequence.md",
+    "Reasoning.md",
+    "preferred Commands.md",
+    "Options.md",
+    "shard game state.md",
+    "Multiplayer.md",
+    "items.md",
+    "instructions.md",
+    "game state.md",
+    "Encounter.md",
+    "Dungeon.md",
+    "Challenge.md",
+    "brunches.md",
+    "alternat progression.md",
     "Brainstorm.md",
+    "Action.md",
+    "Action state machine.md",
+    "game stat.md",
     "quarries",
     "Goals/Dungeon Rush future",
     "Untitled.canvas",

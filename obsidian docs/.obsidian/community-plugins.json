@@ -1,7 +1,9 @@
 [
   "obsidian-git",
   "obsidian-latex-suite",
-  "obsidian-linter",
+  "obsidian-show-file-path",
+  "darlal-switcher-plus",
   "settings-search",
-  "obsidian-show-file-path"
+  "colored-tags",
+  "obsidian-linter"
 ]
