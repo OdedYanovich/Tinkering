@@ -57,11 +57,11 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#future tag:#goal/reason",
+                "query": "tag:#future tag:#action tag:#goal/code",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
-                "extraContext": false,
+                "extraContext": true,
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
