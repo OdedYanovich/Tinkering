@@ -1,4 +1,4 @@
-use core::tinkering_api::{run, Display, States};
+use core::{state_machine::GameState, Display};
 
 struct Cli;
 impl Display for Cli {
@@ -8,11 +8,13 @@ impl Display for Cli {
     fn dungeon_information(s: &str) {
         println!("{s}");
     }
+    fn new() -> Self {
+        Cli
+    }
 }
 fn main() {
-    let cli = Cli;
-    let state = States::new::<Cli>();
+    let mut current_game_mod = GameState::<Cli>::new();
     // loop{}
     let action_button = 'a';
-    run(&cli, action_button);
+    current_game_mod.run(action_button);
 }

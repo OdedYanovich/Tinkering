@@ -1,58 +1,69 @@
-pub mod tinkering_api {
-    /// A mandatory step of input processing.
-    pub trait Action {
-        /// a ∈ Action.
-        /// p, b ∈ button Press.
-        /// a*b = a contain b.
-        /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
-        /// [[#double-press|Why?]].
-        fn add(&mut self, press: char);
-        fn clear(&mut self);
-        /// p = relevant button press, m = max size.
-        /// ~x = x is an Action that impacts the game.
-        /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
-        fn len(&self) -> usize;
-    }
-    ///Required implementation for each state.
-    ///Sounds implying that players are tinkering with a machine
-    trait Audio {
-        /// Play a sound in response to a button press
-        fn press();
-        /// Play a sound in response to a completed action.
-        /// Different sounds are necessary for cancelled, failed and successful Actions
-        fn action(results: bool);
-        /// Play a sound in the background
-        fn background();
-    }
-    ///1 for each state
-    pub trait Display {
-        /// Show a visual that gives the player information that is relevant to his current information
-        fn dungeon_information(s: &str);
-        /// Show a visual that lets the player know in which state he is
-        fn dungeon_identity();
-    }
-    pub fn run<T: Display>(_t: &T, _action_button: char) {
-        T::dungeon_information(
-            "1) Start an encounter\n2) Select an Option\n3) Credits\n4) Exit the game",
-        );
-    }
+/// A mandatory step of input processing.
+pub trait Action {
+    /// a ∈ Action.
+    /// p, b ∈ button Press.
+    /// a*b = a contain b.
+    /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
+    /// [[#double-press|Why?]].
+    fn add(&mut self, press: char);
+    fn clear(&mut self);
+    /// p = relevant button press, m = max size.
+    /// ~x = x is an Action that impacts the game.
+    /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
+    fn len(&self) -> usize;
+}
+///Required implementation for each state.
+///Sounds implying that players are tinkering with a machine
+pub trait Audio {
+    /// Play a sound in response to a button press
+    fn press();
+    /// Play a sound in response to a completed action.
+    /// Different sounds are necessary for cancelled, failed and successful Actions
+    fn action(results: bool);
+    /// Play a sound in the background
+    fn background();
+}
+///1 for each state
+pub trait Display {
+    /// Show a visual that gives the player information that is relevant to his current information
+    fn dungeon_information(s: &str);
+    /// Show a visual that lets the player know in which state he is
+    fn dungeon_identity();
+    fn new() -> Self;
+}
+pub mod state_machine {
+    use crate::{Action, Display};
     #[derive(PartialEq)]
-    pub enum States {
+    pub enum GameMods {
         Dungeon,
         Credit,
         Option,
         Encounter,
     }
-    impl States {
-        // For all game state to implement
-        // trait GameState {
-        //     fn action_length() -> u8;
-        //     fn optional() {}
-        // }
-        pub fn new<D: Display>() -> Self {
+    // For all game state to implement
+    // trait GameState {
+    //     fn action_length() -> u8;
+    //     fn optional() {}
+    // }
+    pub struct GameState<D: Display> {
+        current_mod: GameMods,
+        display_tool: D,
+    }
+    impl<D: Display> GameState<D> {
+        pub fn new() -> Self {
             D::dungeon_identity();
-            Self::Dungeon
+            Self {
+                current_mod: GameMods::Dungeon,
+                display_tool: D::new(),
+            }
         }
+        pub fn run(&mut self,_action_button: char) {
+            D::dungeon_information(
+                "1) Start an encounter\n2) Select an Option\n3) Credits\n4) Exit the game",
+            );
+        }
+    }
+    impl GameMods {
         fn transition<A: Action, D: Display>(&mut self, _action: A) {
             D::dungeon_identity();
             match *self {
@@ -62,7 +73,6 @@ pub mod tinkering_api {
         }
     }
 }
-
 mod encounter {
     struct Command;
 
@@ -89,7 +99,7 @@ mod encounter {
     }
 }
 mod action {
-    use crate::tinkering_api::Action;
+    use crate::Action;
     pub struct CharSet(std::collections::HashSet<char>);
     impl CharSet {
         fn new() -> Self {
@@ -108,8 +118,16 @@ mod action {
         }
     }
 }
+/// Encounters will be selected randomly from the set.
+mod layer_set {
+    /// Growth in difficulty will be done in 2 ways:
+    /// New and harder encounters will be added to the set.
+    /// Easier encounters will be removed from the set
+    trait CaterpillarEscalation {}
+}
+#[allow(dead_code)]
 mod tinkering_sequel {
-    
     mod tinkering2 {}
-    trait ActionStateMachine{}
+
+    trait ActionStateMachine {}
 }
