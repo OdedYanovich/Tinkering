@@ -1,15 +1,25 @@
-pub mod state_machine {
+pub mod tinkering_api {
+    /// A mandatory step of input processing.
     pub trait Action {
-        fn new() -> Self;
+        /// a ∈ Action.
+        /// p, b ∈ button Press.
+        /// a*b = a contain b.
+        /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
+        /// [[#double-press|Why?]].
         fn add(&mut self, press: char);
         fn clear(&mut self);
+        /// p = relevant button press, m = max size.
+        /// ~x = x is an Action that impacts the game.
+        /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
         fn len(&self) -> usize;
     }
-    ///1 for each state
+    ///Required implementation for each state.
+    ///Sounds implying that players are tinkering with a machine
     trait Audio {
         /// Play a sound in response to a button press
         fn press();
-        /// Play a sound in response to a completed action
+        /// Play a sound in response to a completed action.
+        /// Different sounds are necessary for cancelled, failed and successful Actions
         fn action(results: bool);
         /// Play a sound in the background
         fn background();
@@ -21,10 +31,6 @@ pub mod state_machine {
         /// Show a visual that lets the player know in which state he is
         fn dungeon_identity();
     }
-    // trait GameState {
-    //     fn action_length() -> u8;
-    //     fn optional() {}
-    // }
     pub fn run<T: Display>(_t: &T, _action_button: char) {
         T::dungeon_information(
             "1) Start an encounter\n2) Select an Option\n3) Credits\n4) Exit the game",
@@ -38,6 +44,11 @@ pub mod state_machine {
         Encounter,
     }
     impl States {
+        // For all game state to implement
+        // trait GameState {
+        //     fn action_length() -> u8;
+        //     fn optional() {}
+        // }
         pub fn new<D: Display>() -> Self {
             D::dungeon_identity();
             Self::Dungeon
@@ -48,9 +59,6 @@ pub mod state_machine {
                 Self::Dungeon => {} // Transitions are between Dungeon and the rest
                 _ => *self = Self::Dungeon,
             }
-            // Credit
-            // Options
-            // Encounter
         }
     }
 }
@@ -80,14 +88,15 @@ mod encounter {
         }
     }
 }
-
 mod action {
-    use crate::state_machine::Action;
+    use crate::tinkering_api::Action;
     pub struct CharSet(std::collections::HashSet<char>);
-    impl Action for CharSet {
+    impl CharSet {
         fn new() -> Self {
             Self(std::collections::HashSet::new())
         }
+    }
+    impl Action for CharSet {
         fn add(&mut self, press: char) {
             self.0.insert(press);
         }
@@ -98,4 +107,9 @@ mod action {
             self.0.len()
         }
     }
+}
+mod tinkering_sequel {
+    
+    mod tinkering2 {}
+    trait ActionStateMachine{}
 }

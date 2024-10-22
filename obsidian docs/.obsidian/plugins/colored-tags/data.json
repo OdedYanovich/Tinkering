@@ -1,7 +1,7 @@
 {
   "palette": {
-    "seed": 0,
-    "selected": "adaptive-soft",
+    "seed": 4,
+    "selected": "adaptive-bright",
     "custom": "e12729-f37324-f8cc1b-72b043-007f4e"
   },
   "mixColors": true,
@@ -20,7 +20,12 @@
     "game-state": 6,
     "game-state/core": 1,
     "game-state/regular": 2,
-    "goal/boundary": 3
+    "goal/boundary": 3,
+    "production_steps": 7,
+    "production_steps/input": 1,
+    "t": 8,
+    "trying": 9,
+    "shared": 10
   },
   "_version": 3
 }

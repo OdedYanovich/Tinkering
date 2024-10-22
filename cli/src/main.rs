@@ -1,11 +1,6 @@
-use core::state_machine::{run, Display, States};
+use core::tinkering_api::{run, Display, States};
 
 struct Cli;
-// impl StatesCliWrapper {
-//     fn new()->Self{
-
-//     }
-// }
 impl Display for Cli {
     fn dungeon_identity() {
         println!("you're in the Dungeon,\nAct!");
