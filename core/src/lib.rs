@@ -1,17 +1,3 @@
-/// A mandatory step of input processing.
-trait Action {
-    /// a ∈ Action.
-    /// p, b ∈ button Press.
-    /// a*b = a contain b.
-    /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
-    /// [[#double-press|Why?]].
-    fn add(&mut self, press: char);
-    fn clear(&mut self);
-    /// p = relevant button press, m = max size.
-    /// ~x = x is an Action that impacts the game.
-    /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
-    fn len(&self) -> usize;
-}
 ///Required implementation for each state.
 ///Sounds implying that players are tinkering with a machine
 pub trait Audio {
@@ -25,10 +11,9 @@ pub trait Audio {
 }
 ///1 for each state
 pub trait Display {
-    /// Show a visual that gives the player information that is relevant to his current information
-    fn dungeon_information(s: &str);
-    /// Show a visual that lets the player know in which state he is
-    fn dungeon_identity();
+    /// Display information that is relevant to his current situation
+    fn display(s: &str);
+    /// Make a new display tool
     fn new() -> Self;
 }
 pub trait Options {
@@ -39,53 +24,93 @@ pub trait Options {
     fn font();
 }
 pub mod state_machine {
-    use crate::{Action, Display};
-    #[derive(PartialEq)]
-    pub enum GameMods {
-        Dungeon,
-        Credit,
-        Option,
-        Encounter,
+    use crate::Display;
+    /// For all game state to implement
+    pub trait Mod {
+        /// Information presentation instruction
+        fn information_display();
+        /// Provide information that is unique to the state and never changes
+        fn identity<'s>() -> &'s str;
+        ///returns the amount of button necessary to complete the action
+        fn action_length() -> u8;
+        /// Make a new Mod
+        fn new() -> Self;
     }
-    // For all game state to implement
-    // trait GameState {
-    //     fn action_length() -> u8;
-    //     fn optional() {}
-    // }
-    pub struct GameState<D: Display> {
-        current_mod: GameMods,
+    pub trait MainState: Mod {}
+    pub trait SideState: Mod {}
+    #[derive(PartialEq)]
+    pub enum GameMods<L: MainState, C: SideState, O: SideState, E: SideState> {
+        Location(L),
+        Credit(C),
+        Option(O),
+        Encounter(E),
+    }
+    impl<L: MainState, C: SideState, O: SideState, E: SideState> GameMods<L, C, O, E> {
+        /// The only acceptable state change between Dungeon and the rest
+        fn transition<A: crate::action::Action, D: Display>(&mut self, _action: A) {
+            let t = &self;
+            let mod_identity;
+            *self = match t {
+                Self::Location(l) => {
+                    mod_identity = L::identity();
+                    todo!() //Can transition to any other state
+                }
+                GameMods::Credit(c) => {
+                    mod_identity = C::identity();
+                    GameMods::Location(L::new())
+                }
+                GameMods::Option(o) => {
+                    mod_identity = O::identity();
+                    GameMods::Location(L::new())
+                }
+                GameMods::Encounter(e) => {
+                    mod_identity = E::identity();
+                    GameMods::Location(L::new())
+                }
+            };
+            D::display(mod_identity);
+        }
+    }
+    pub struct GameState<D: Display, L: MainState, C: SideState, O: SideState, E: SideState> {
+        current_mod: GameMods<L, C, O, E>,
         display_tool: D,
     }
-    impl<D: Display> GameState<D> {
+    impl<D: Display, L: MainState, C: SideState, O: SideState, E: SideState> GameState<D, L, C, O, E> {
         pub fn new() -> Self {
-            D::dungeon_identity();
+            D::display(L::identity());
             Self {
-                current_mod: GameMods::Dungeon,
+                current_mod: GameMods::<L, C, O, E>::Location(L::new()),
                 display_tool: D::new(),
             }
         }
         ///Run the game
         pub fn run(&mut self, _action_button: char) {
-            // loop{}
-            D::dungeon_information(
-                "1) Start an encounter\n2) Select an Option\n3) Credits\n4) Exit the game",
-            );
-        }
-    }
-    impl GameMods {
-        fn transition<A: Action, D: Display>(&mut self, _action: A) {
-            D::dungeon_identity();
-            match *self {
-                Self::Dungeon => {} // Transitions are between Dungeon and the rest
-                _ => *self = Self::Dungeon,
-            }
+            let location_information = [
+                "1) Start an encounter",
+                "2) Select an Option",
+                "3) Credits",
+                "4) Exit the game",
+            ];
+            location_information.iter().for_each(|s| {
+                let t = &(*self).current_mod;
+                match *t {
+                    GameMods::Location(_) => {
+                        L::information_display();
+                    }
+                    _ => {}
+                }
+                D::display(s);
+            });
         }
     }
 }
 mod encounter {
-    struct Command;
+    ///Define a subset of the potential permutations of the player's actions
+    ///that they will be reworded for providing a permutation that is owned by that subset.
+    ///Show the current and future command at the same time
+    trait Command: Iterator<Item = char> + Sized {}
 
-    fn check_action(action: &str, command: IndexingTool) -> u8 {
+    fn check_action<C: Command>(action: &str, command: C) -> u8 {
         let mut result = 0;
         for (press, expected) in action.chars().zip(command) {
             if press == expected {
@@ -94,21 +119,39 @@ mod encounter {
         }
         result
     }
-    struct IndexingTool<'a, 'b> {
-        data: &'a [char],
-        indices: &'b [u8],
+    //Manage array of indices to a different array
+    struct IndexingTool<'d, 'i> {
+        data: &'d [char],
+        indices: &'i [u8],
         index: u8,
     }
-    impl<'a, 'b> Iterator for IndexingTool<'a, 'b> {
+    impl<'d, 'i> Iterator for IndexingTool<'d, 'i> {
         type Item = char;
         fn next(&mut self) -> Option<Self::Item> {
             self.index += 1;
             Some(self.data[self.indices[(self.index - 1) as usize] as usize])
         }
     }
+    impl<'a, 'b> Command for IndexingTool<'a, 'b> {}
 }
 mod action {
-    use crate::Action;
+    /// A mandatory step of input processing.
+    pub trait Action {
+        /// a ∈ Action.
+        /// p, b ∈ button Press.
+        /// a*b = a contain b.
+        /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
+        /// [[#double-press|Why?]].
+        fn add(&mut self, press: char);
+        fn clear(&mut self);
+        /// p = relevant button press, m = max size.
+        /// ~x = x is an Action that impacts the game.
+        /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
+        fn len(&self) -> usize;
+        fn optional() {}
+        //Encounter could gain an identity if they will start as soon as the player
+        //press a button instead of as soon as the first action is made
+    }
     pub struct CharSet(std::collections::HashSet<char>);
     impl CharSet {
         fn new() -> Self {
@@ -136,7 +179,7 @@ mod layer_set {
 }
 #[allow(dead_code)]
 mod tinkering_sequels {
-    use crate::Action;
+    use crate::action::Action;
     ///Introducing graphs with sequences
     mod tinkering2 {
         ///Iterate over a set of action.
