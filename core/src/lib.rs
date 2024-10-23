@@ -170,12 +170,28 @@ mod action {
         }
     }
 }
-/// Encounters will be selected randomly from the set.
-mod layer_set {
-    /// Growth in difficulty will be done in 2 ways:
-    /// New and harder encounters will be added to the set.
-    /// Easier encounters will be removed from the set
-    trait CaterpillarEscalation {}
+mod dungeon {
+    /// Encounters will be selected randomly from the set.
+    mod layer {
+        pub struct Layer;
+        /// Growth in difficulty will be done in 2 ways:
+        /// New and harder encounters will be added to the set.
+        /// Easier encounters will be removed from the set
+        trait CaterpillarEscalation {
+            // The first Layers are reducing enemies without randomness (2-1, 3-1, 3-2).
+            // They will end with a layer that include all of them in a row.
+        }
+        trait ProgressThreshold {}
+        trait show_encounters {
+            fn layout(amount_of_encounters: u8);
+            fn position(id: u8);
+        }
+    }
+    trait LayerSelector {}
+
+    trait MakeEncounter {
+        fn from_layer(t: layer::Layer);
+    }
 }
 #[allow(dead_code)]
 mod tinkering_sequels {
@@ -222,4 +238,23 @@ mod tinkering_sequels {
         /// animators are getting a lot of freedom.
         struct Buffer;
     }
+    ///A sequence of actions that players can do in order during an encounter
+    /// when the current action is within the set of the current command
+    /// for a reword
+    trait OptionalChallenge {
+        ///a = Action, c = Challenge,
+        ///x - y = x removes y
+        ///x + y = x exposes y
+        ///@x = x just happened
+        ///*x = current Command ∈ x
+        ///∃c∃a(@a ∧ c + a ∧ *a ⊂ c - a)
+        fn conditional_remove();
+        ///c = challenge
+        /// * = reword is given
+        ///{ ∀c:|c| == 0 } = *
+        fn conditional_reword();
+    }
+    ///Allows commands to require players to treat the buttons within them differently.
+    ///For example,
+    trait Instruction{}
 }
