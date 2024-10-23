@@ -1,5 +1,5 @@
 /// A mandatory step of input processing.
-pub trait Action {
+trait Action {
     /// a ∈ Action.
     /// p, b ∈ button Press.
     /// a*b = a contain b.
@@ -31,6 +31,13 @@ pub trait Display {
     fn dungeon_identity();
     fn new() -> Self;
 }
+pub trait Options {
+    fn volume();
+    ///Potential reword
+    fn color_scheme();
+    ///Potential reword
+    fn font();
+}
 pub mod state_machine {
     use crate::{Action, Display};
     #[derive(PartialEq)]
@@ -57,7 +64,9 @@ pub mod state_machine {
                 display_tool: D::new(),
             }
         }
-        pub fn run(&mut self,_action_button: char) {
+        ///Run the game
+        pub fn run(&mut self, _action_button: char) {
+            // loop{}
             D::dungeon_information(
                 "1) Start an encounter\n2) Select an Option\n3) Credits\n4) Exit the game",
             );
@@ -126,8 +135,48 @@ mod layer_set {
     trait CaterpillarEscalation {}
 }
 #[allow(dead_code)]
-mod tinkering_sequel {
-    mod tinkering2 {}
-
-    trait ActionStateMachine {}
+mod tinkering_sequels {
+    use crate::Action;
+    ///Introducing graphs with sequences
+    mod tinkering2 {
+        ///Iterate over a set of action.
+        /// The possibility to start in a line that is connected to the loop is less interesting.
+        struct Order;
+    }
+    ///Extending graphs with conditions
+    mod tinkering3 {
+        ///An alternative path to the order that is tied to a condition
+        struct Link;
+        ///The condition (at list for now)
+        struct ActionSubset;
+    }
+    ///Effected by actions and commands independently and defining progress
+    struct Environment;
+    mod multiplayer {
+        ///In 1 mod, players attempting to gain the largest score under restrictions.
+        struct Score;
+        ///Let's players compar each other's scores
+        struct Instagram;
+        /// Limited time event that for multiplayer
+        struct TimedEncounter;
+        ///Price/reminder for outstanding scores
+        struct Badge;
+        ///2 players sharing an environment with one's actions serving as the other's commands
+        struct Fight;
+    }
+    ///More complicated incentive system then 2 hp bars.
+    /// Probably effect conditions.
+    struct Progression;
+    ///Will be the first to modify an action
+    trait ActionStateMachine {
+        ///Internal state maps player's action to the action that will make an impact
+        fn pick<A: Action>(&mut self, action: A) -> A;
+    }
+    ///Makes encounters easier
+    struct Item;
+    mod graphics {
+        ///Without the need to make the effect of an action immediate,
+        /// animators are getting a lot of freedom.
+        struct Buffer;
+    }
 }

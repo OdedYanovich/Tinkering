@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "action state machine.md",
+                "file": "reasoning.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "action state machine"
+              "title": "reasoning"
             }
           }
         ]
@@ -98,11 +98,12 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -120,24 +121,24 @@
   "active": "9f5048433a40e532",
   "lastOpenFiles": [
     "The only note.md",
-    "action(done).md",
-    "Brainstorm.md",
-    "Sound(done).md",
-    "sequence.md",
-    "reasoning.md",
-    "preferred Commands.md",
-    "options.md",
-    "shared game state.md",
-    "game state.md",
-    "items.md",
-    "multiplayer.md",
-    "instruction.md",
+    "preferred Commands(done).md",
     "encounter.md",
-    "challenge.md",
     "dungeon.md",
-    "brunches.md",
+    "challenge.md",
+    "options.md",
+    "items.md",
+    "instruction.md",
+    "game state.md",
     "alternative progression.md",
+    "Brainstorm.md",
+    "multiplayer.md",
+    "shared game state.md",
+    "Sound(done).md",
+    "brunches.md",
+    "sequence.md",
     "action state machine.md",
+    "action(done).md",
+    "reasoning.md",
     "tags example.canvas",
     "Untitled.canvas",
     "tags.md",
