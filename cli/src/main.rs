@@ -1,5 +1,5 @@
 use core::{
-    state_machine::{GameState, MainState, Mod, SideState},
+    state_machine::{GameState, Mod},
     Display,
 };
 
@@ -27,7 +27,6 @@ impl Mod for Location {
         Location
     }
 }
-impl MainState for Location {}
 struct Credit;
 impl Mod for Credit {
     fn identity<'s>() -> &'s str {
@@ -43,7 +42,6 @@ impl Mod for Credit {
         Credit
     }
 }
-impl SideState for Credit {}
 struct Options;
 impl Mod for Options {
     fn identity<'s>() -> &'s str {
@@ -59,7 +57,6 @@ impl Mod for Options {
         Options
     }
 }
-impl SideState for Options {}
 struct Encounter;
 impl Mod for Encounter {
     fn identity<'s>() -> &'s str {
@@ -75,7 +72,6 @@ impl Mod for Encounter {
         Encounter
     }
 }
-impl SideState for Encounter {}
 
 fn main() {
     let mut current_game_mod = GameState::<Cli, Location, Credit, Options, Encounter>::new();

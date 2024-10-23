@@ -36,16 +36,17 @@ pub mod state_machine {
         /// Make a new Mod
         fn new() -> Self;
     }
-    pub trait MainState: Mod {}
-    pub trait SideState: Mod {}
-    #[derive(PartialEq)]
-    pub enum GameMods<L: MainState, C: SideState, O: SideState, E: SideState> {
-        Location(L),
-        Credit(C),
-        Option(O),
-        Encounter(E),
+    // pub trait MainState: Mod {}
+    // pub trait SideState: Mod {}
+    struct MainState<S: Mod>(S);
+    struct SideState<S: Mod>(S);
+    enum GameMods<L: Mod, C: Mod, O: Mod, E: Mod> {
+        Location(MainState<L>),
+        Credit(SideState<C>),
+        Option(SideState<O>),
+        Encounter(SideState<E>),
     }
-    impl<L: MainState, C: SideState, O: SideState, E: SideState> GameMods<L, C, O, E> {
+    impl<L: Mod, C: Mod, O: Mod, E: Mod> GameMods<L, C, O, E> {
         /// The only acceptable state change between Dungeon and the rest
         fn transition<A: crate::action::Action, D: Display>(&mut self, _action: A) {
             let t = &self;
@@ -55,31 +56,31 @@ pub mod state_machine {
                     mod_identity = L::identity();
                     todo!() //Can transition to any other state
                 }
-                GameMods::Credit(c) => {
+                GameMods::Credit(_c) => {
                     mod_identity = C::identity();
-                    GameMods::Location(L::new())
+                    GameMods::Location(MainState(L::new()))
                 }
-                GameMods::Option(o) => {
+                GameMods::Option(_o) => {
                     mod_identity = O::identity();
-                    GameMods::Location(L::new())
+                    GameMods::Location(MainState(L::new()))
                 }
-                GameMods::Encounter(e) => {
+                GameMods::Encounter(_e) => {
                     mod_identity = E::identity();
-                    GameMods::Location(L::new())
+                    GameMods::Location(MainState(L::new()))
                 }
             };
             D::display(mod_identity);
         }
     }
-    pub struct GameState<D: Display, L: MainState, C: SideState, O: SideState, E: SideState> {
+    pub struct GameState<D: Display, L: Mod, C: Mod, O: Mod, E: Mod> {
         current_mod: GameMods<L, C, O, E>,
         display_tool: D,
     }
-    impl<D: Display, L: MainState, C: SideState, O: SideState, E: SideState> GameState<D, L, C, O, E> {
+    impl<D: Display, L: Mod, C: Mod, O: Mod, E: Mod> GameState<D, L, C, O, E> {
         pub fn new() -> Self {
             D::display(L::identity());
             Self {
-                current_mod: GameMods::<L, C, O, E>::Location(L::new()),
+                current_mod: GameMods::<L, C, O, E>::Location(MainState(L::new())),
                 display_tool: D::new(),
             }
         }
@@ -256,5 +257,5 @@ mod tinkering_sequels {
     }
     ///Allows commands to require players to treat the buttons within them differently.
     ///For example,
-    trait Instruction{}
+    trait Instruction {}
 }
