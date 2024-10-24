@@ -1,3 +1,21 @@
+/// A mandatory step of input processing.
+pub trait Action {
+    /// a ∈ Action.
+    /// p, b ∈ button Press.
+    /// a*b = a contain b.
+    /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
+    /// [[#double-press|Why?]].
+    fn add(&mut self, press: char);
+    fn clear(&mut self);
+    /// p = relevant button press, m = max size.
+    /// ~x = x is an Action that impacts the game.
+    /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
+    fn get_press_amount(&self) -> usize;
+    fn set_press_amount(&mut self, new_len: u8);
+    fn new(len: u8) -> Self;
+    //Encounter could gain an identity if they will start as soon as the player
+    //press a button instead of as soon as the first action is made
+}
 ///Required implementation for each state.
 ///Sounds implying that players are tinkering with a machine
 pub trait Audio {
@@ -18,7 +36,7 @@ pub trait Display {
     ///Lets users initialize the Display object for action read
     fn before_action_read(&mut self) {}
     ///
-    fn action_read(&self) -> char;
+    fn action_read(&mut self) -> char;
 }
 pub trait Options {
     fn volume();
@@ -29,13 +47,13 @@ pub trait Options {
 }
 
 pub mod state_machine {
-    use crate::{action::Action, Display};
+    use crate::{Action, Display};
     /// For all game state to implement
     pub trait Mod {
         /// Information presentation instruction
         fn information_display();
         /// Provide information that is unique to the state and never changes
-        fn state_identity<'s>() -> &'s str;
+        fn state_identity<'s, D: Display>();
         ///returns the amount of button necessary to complete the action
         fn action_length() -> u8;
         /// Make a new Mod
@@ -43,42 +61,42 @@ pub mod state_machine {
     }
     struct MainState<S: Mod>(S);
     struct SideState<S: Mod>(S);
-    enum GameMods<L: Mod, C: Mod, O: Mod, E: Mod> {
-        Location(MainState<L>),
-        Credit(SideState<C>),
-        Option(SideState<O>),
-        Encounter(SideState<E>),
+    enum GameMods<Location: Mod, Credit: Mod, Options: Mod, Encounter: Mod> {
+        Location(MainState<Location>),
+        Credit(SideState<Credit>),
+        Option(SideState<Options>),
+        Encounter(SideState<Encounter>),
     }
-    impl<L: Mod, C: Mod, O: Mod, E: Mod> GameMods<L, C, O, E> {
+    impl<Location: Mod, Credit: Mod, Options: Mod, Encounter: Mod>
+        GameMods<Location, Credit, Options, Encounter>
+    {
         /// The only acceptable state change between Dungeon and the rest
-        fn transition<A: crate::action::Action, D: Display>(&mut self, _action: A) {
+        fn transition<A: Action, D: Display>(&mut self, _action: A) {
             let t = &self;
-            let mod_identity_info;
             *self = match t {
                 Self::Location(l) => {
-                    mod_identity_info = L::state_identity();
+                    Location::state_identity::<D>();
                     match 0 {
-                        1 => Self::Credit(SideState(C::new())),
-                        2 => Self::Encounter(SideState(E::new())),
-                        3 => Self::Option(SideState(O::new())),
-                        _ => Self::Location(MainState(L::new())),
+                        1 => Self::Credit(SideState(Credit::new())),
+                        2 => Self::Encounter(SideState(Encounter::new())),
+                        3 => Self::Option(SideState(Options::new())),
+                        _ => Self::Location(MainState(Location::new())),
                     }
-                    // todo!() //Can transition to any other state
                 }
                 GameMods::Credit(_c) => {
-                    mod_identity_info = C::state_identity();
-                    GameMods::Location(MainState(L::new()))
+                    Credit::state_identity::<D>();
+                    GameMods::Location(MainState(Location::new()))
                 }
                 GameMods::Option(_o) => {
-                    mod_identity_info = O::state_identity();
-                    GameMods::Location(MainState(L::new()))
+                    Options::state_identity::<D>();
+                    GameMods::Location(MainState(Location::new()))
                 }
                 GameMods::Encounter(_e) => {
-                    mod_identity_info = E::state_identity();
-                    GameMods::Location(MainState(L::new()))
+                    Encounter::state_identity::<D>();
+                    GameMods::Location(MainState(Location::new()))
                 }
             };
-            D::display(mod_identity_info);
+            // D::display(mod_identity_info);
         }
     }
     pub struct GameState<D: Display, L: Mod, C: Mod, O: Mod, E: Mod, A: Action> {
@@ -89,12 +107,14 @@ pub mod state_machine {
     use crate::action::CharSet;
     pub fn new_game_state<D: Display, L: Mod, C: Mod, O: Mod, E: Mod>(
     ) -> GameState<D, L, C, O, E, CharSet> {
-        D::display(L::state_identity());
-        GameState {
+        let t = GameState {
             current_mod: GameMods::<L, C, O, E>::Location(MainState(L::new())),
             display_tool: D::new(),
             action_set: CharSet::new(1),
-        }
+        };
+        L::state_identity::<D>();
+        // D::display(1, L::state_identity());
+        t
     }
     impl<D: Display, L: Mod, C: Mod, O: Mod, E: Mod> GameState<D, L, C, O, E, CharSet> {
         ///Run the game
@@ -114,6 +134,7 @@ pub mod state_machine {
                     _ => {}
                 }
                 D::display(s);
+                // D::display(s);
             });
         }
     }
@@ -149,27 +170,8 @@ mod encounter {
     impl<'a, 'b> Command for IndexingTool<'a, 'b> {}
 }
 mod action {
-    /// A mandatory step of input processing.
-    pub trait Action {
-        /// a ∈ Action.
-        /// p, b ∈ button Press.
-        /// a*b = a contain b.
-        /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
-        /// [[#double-press|Why?]].
-        fn add(&mut self, press: char);
-        fn clear(&mut self);
-        /// p = relevant button press, m = max size.
-        /// ~x = x is an Action that impacts the game.
-        /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
-        fn get_press_amount(&self) -> usize;
-        fn set_press_amount(&mut self, new_len: u8);
-        fn optional() {}
-        fn new(len: u8) -> Self;
-        //Encounter could gain an identity if they will start as soon as the player
-        //press a button instead of as soon as the first action is made
-    }
     pub struct CharSet(std::collections::HashSet<char>);
-    impl Action for CharSet {
+    impl crate::Action for CharSet {
         fn add(&mut self, press: char) {
             self.0.insert(press);
         }
@@ -215,7 +217,6 @@ mod dungeon {
 }
 #[allow(dead_code)]
 mod tinkering_sequels {
-    use crate::action::Action;
     ///Introducing graphs with sequences
     mod tinkering2 {
         ///Iterate over a set of action.
@@ -249,7 +250,7 @@ mod tinkering_sequels {
     ///Will be the first to modify an action
     trait ActionStateMachine {
         ///Internal state maps player's action to the action that will make an impact
-        fn pick<A: Action>(&mut self, action: A) -> A;
+        fn pick<A: crate::Action>(&mut self, action: A) -> A;
     }
     ///Makes encounters easier
     struct Item;

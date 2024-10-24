@@ -1,27 +1,46 @@
 use core::{
-    state_machine::{new_game_state, GameState, Mod},
-    Display,
+    state_machine::{new_game_state, Mod},
+    Action, Display,
 };
-
-struct Cli(String);
-impl Display for Cli {
+struct CliOut(std::vec::IntoIter<char>);
+impl CliOut {
+    fn fill_presses_iterator() -> Self {
+        let mut t = String::new();
+        std::io::stdin().read_line(&mut t).unwrap();
+        Self(t.chars().collect::<Vec<_>>().into_iter())
+    }
+}
+impl Display for CliOut {
     fn display(s: &str) {
         println!("{s}");
     }
     fn new() -> Self {
-        Cli(String::new())
+        Self::fill_presses_iterator()
     }
     fn before_action_read(&mut self) {
-        std::io::stdin().read_line(&mut self.0).unwrap();
+        *self = Self::fill_presses_iterator();
     }
-    fn action_read(&self) -> char {
-        self.0.chars()
+    fn action_read(&mut self) -> char {
+        self.0.next().unwrap()
+    }
+}
+struct CliIn(std::vec::IntoIter<char>);
+impl CliIn {
+    fn fill_presses_iterator() -> Self {
+        let mut t = String::new();
+        std::io::stdin().read_line(&mut t).unwrap();
+        Self(t.chars().collect::<Vec<_>>().into_iter())
+    }
+}
+impl Action for CliIn {
+    fn new() -> Self {
+        Self::fill_presses_iterator()
     }
 }
 struct Location;
 impl Mod for Location {
-    fn state_identity<'s>() -> &'s str {
-        "you're in the dungeon,\nchoose wisely\n"
+    fn state_identity<D: Display>() {
+        D::display("you're in the dungeon,\nchoose wisely\n")
     }
     fn information_display() {
         print!("");
@@ -35,8 +54,8 @@ impl Mod for Location {
 }
 struct Credit;
 impl Mod for Credit {
-    fn state_identity<'s>() -> &'s str {
-        "Credits\n"
+    fn state_identity<D: Display>() {
+        D::display("Credits\n");
     }
     fn information_display() {
         println!();
@@ -50,8 +69,8 @@ impl Mod for Credit {
 }
 struct Options;
 impl Mod for Options {
-    fn state_identity<'s>() -> &'s str {
-        "you're in the options menu"
+    fn state_identity<D: Display>() {
+        D::display("you're in the options menu");
     }
     fn information_display() {
         println!();
@@ -65,8 +84,8 @@ impl Mod for Options {
 }
 struct Encounter;
 impl Mod for Encounter {
-    fn state_identity<'s>() -> &'s str {
-        "you're in an encounter,\nAct!"
+    fn state_identity<D: Display>() {
+        D::display("you're in an encounter,\nAct!");
     }
     fn information_display() {
         println!();
@@ -80,7 +99,7 @@ impl Mod for Encounter {
 }
 
 fn main() {
-    let mut current_game_mod = new_game_state::<Cli, Location, Credit, Options, Encounter>();
+    let mut current_game_mod = new_game_state::<CliOut, Location, Credit, Options, Encounter>();
     let action_button = 'a';
     current_game_mod.run(action_button);
 }
