@@ -1,20 +1,26 @@
 use core::{
-    state_machine::{GameState, Mod},
+    state_machine::{new_game_state, GameState, Mod},
     Display,
 };
 
-struct Cli;
+struct Cli(String);
 impl Display for Cli {
     fn display(s: &str) {
         println!("{s}");
     }
     fn new() -> Self {
-        Cli
+        Cli(String::new())
+    }
+    fn before_action_read(&mut self) {
+        std::io::stdin().read_line(&mut self.0).unwrap();
+    }
+    fn action_read(&self) -> char {
+        self.0.chars()
     }
 }
 struct Location;
 impl Mod for Location {
-    fn identity<'s>() -> &'s str {
+    fn state_identity<'s>() -> &'s str {
         "you're in the dungeon,\nchoose wisely\n"
     }
     fn information_display() {
@@ -29,7 +35,7 @@ impl Mod for Location {
 }
 struct Credit;
 impl Mod for Credit {
-    fn identity<'s>() -> &'s str {
+    fn state_identity<'s>() -> &'s str {
         "Credits\n"
     }
     fn information_display() {
@@ -44,7 +50,7 @@ impl Mod for Credit {
 }
 struct Options;
 impl Mod for Options {
-    fn identity<'s>() -> &'s str {
+    fn state_identity<'s>() -> &'s str {
         "you're in the options menu"
     }
     fn information_display() {
@@ -59,7 +65,7 @@ impl Mod for Options {
 }
 struct Encounter;
 impl Mod for Encounter {
-    fn identity<'s>() -> &'s str {
+    fn state_identity<'s>() -> &'s str {
         "you're in an encounter,\nAct!"
     }
     fn information_display() {
@@ -74,7 +80,7 @@ impl Mod for Encounter {
 }
 
 fn main() {
-    let mut current_game_mod = GameState::<Cli, Location, Credit, Options, Encounter>::new();
+    let mut current_game_mod = new_game_state::<Cli, Location, Credit, Options, Encounter>();
     let action_button = 'a';
     current_game_mod.run(action_button);
 }

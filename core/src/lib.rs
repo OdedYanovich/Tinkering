@@ -15,6 +15,10 @@ pub trait Display {
     fn display(s: &str);
     /// Make a new display tool
     fn new() -> Self;
+    ///Lets users initialize the Display object for action read
+    fn before_action_read(&mut self) {}
+    ///
+    fn action_read(&self) -> char;
 }
 pub trait Options {
     fn volume();
@@ -23,21 +27,20 @@ pub trait Options {
     ///Potential reword
     fn font();
 }
+
 pub mod state_machine {
-    use crate::Display;
+    use crate::{action::Action, Display};
     /// For all game state to implement
     pub trait Mod {
         /// Information presentation instruction
         fn information_display();
         /// Provide information that is unique to the state and never changes
-        fn identity<'s>() -> &'s str;
+        fn state_identity<'s>() -> &'s str;
         ///returns the amount of button necessary to complete the action
         fn action_length() -> u8;
         /// Make a new Mod
         fn new() -> Self;
     }
-    // pub trait MainState: Mod {}
-    // pub trait SideState: Mod {}
     struct MainState<S: Mod>(S);
     struct SideState<S: Mod>(S);
     enum GameMods<L: Mod, C: Mod, O: Mod, E: Mod> {
@@ -50,40 +53,50 @@ pub mod state_machine {
         /// The only acceptable state change between Dungeon and the rest
         fn transition<A: crate::action::Action, D: Display>(&mut self, _action: A) {
             let t = &self;
-            let mod_identity;
+            let mod_identity_info;
             *self = match t {
                 Self::Location(l) => {
-                    mod_identity = L::identity();
-                    todo!() //Can transition to any other state
+                    mod_identity_info = L::state_identity();
+                    match 0 {
+                        1 => Self::Credit(SideState(C::new())),
+                        2 => Self::Encounter(SideState(E::new())),
+                        3 => Self::Option(SideState(O::new())),
+                        _ => Self::Location(MainState(L::new())),
+                    }
+                    // todo!() //Can transition to any other state
                 }
                 GameMods::Credit(_c) => {
-                    mod_identity = C::identity();
+                    mod_identity_info = C::state_identity();
                     GameMods::Location(MainState(L::new()))
                 }
                 GameMods::Option(_o) => {
-                    mod_identity = O::identity();
+                    mod_identity_info = O::state_identity();
                     GameMods::Location(MainState(L::new()))
                 }
                 GameMods::Encounter(_e) => {
-                    mod_identity = E::identity();
+                    mod_identity_info = E::state_identity();
                     GameMods::Location(MainState(L::new()))
                 }
             };
-            D::display(mod_identity);
+            D::display(mod_identity_info);
         }
     }
-    pub struct GameState<D: Display, L: Mod, C: Mod, O: Mod, E: Mod> {
+    pub struct GameState<D: Display, L: Mod, C: Mod, O: Mod, E: Mod, A: Action> {
         current_mod: GameMods<L, C, O, E>,
         display_tool: D,
+        action_set: A,
     }
-    impl<D: Display, L: Mod, C: Mod, O: Mod, E: Mod> GameState<D, L, C, O, E> {
-        pub fn new() -> Self {
-            D::display(L::identity());
-            Self {
-                current_mod: GameMods::<L, C, O, E>::Location(MainState(L::new())),
-                display_tool: D::new(),
-            }
+    use crate::action::CharSet;
+    pub fn new_game_state<D: Display, L: Mod, C: Mod, O: Mod, E: Mod>(
+    ) -> GameState<D, L, C, O, E, CharSet> {
+        D::display(L::state_identity());
+        GameState {
+            current_mod: GameMods::<L, C, O, E>::Location(MainState(L::new())),
+            display_tool: D::new(),
+            action_set: CharSet::new(1),
         }
+    }
+    impl<D: Display, L: Mod, C: Mod, O: Mod, E: Mod> GameState<D, L, C, O, E, CharSet> {
         ///Run the game
         pub fn run(&mut self, _action_button: char) {
             let location_information = [
@@ -148,17 +161,14 @@ mod action {
         /// p = relevant button press, m = max size.
         /// ~x = x is an Action that impacts the game.
         /// ∀p(|p| > m ⟹ ~p) [[#short-sequence|Why one press?]] [[##cenacle-action|Why cancelling?]].
-        fn len(&self) -> usize;
+        fn get_press_amount(&self) -> usize;
+        fn set_press_amount(&mut self, new_len: u8);
         fn optional() {}
+        fn new(len: u8) -> Self;
         //Encounter could gain an identity if they will start as soon as the player
         //press a button instead of as soon as the first action is made
     }
     pub struct CharSet(std::collections::HashSet<char>);
-    impl CharSet {
-        fn new() -> Self {
-            Self(std::collections::HashSet::new())
-        }
-    }
     impl Action for CharSet {
         fn add(&mut self, press: char) {
             self.0.insert(press);
@@ -166,8 +176,17 @@ mod action {
         fn clear(&mut self) {
             self.0.clear();
         }
-        fn len(&self) -> usize {
+        fn get_press_amount(&self) -> usize {
             self.0.len()
+        }
+        fn set_press_amount(&mut self, new_press_amount: u8) {
+            self.clear();
+            self.0.reserve(new_press_amount as usize);
+        }
+        fn new(press_amount: u8) -> Self {
+            Self(std::collections::HashSet::with_capacity(
+                press_amount as usize,
+            ))
         }
     }
 }
