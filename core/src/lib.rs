@@ -3,7 +3,7 @@ pub trait Action {
     /// a ∈ Action.
     /// p, b ∈ button Press.
     /// a*b = a contain b.
-    /// ∀a∀p∀b(a*p∧a*b ⟹ p≠b).
+    /// ∀a∀p∀b(a*p∧a*b ⊆ p≠b).
     /// [[#double-press|Why?]].
     fn add(&mut self, press: char);
     fn clear(&mut self);
