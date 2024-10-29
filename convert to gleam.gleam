@@ -1,18 +1,17 @@
-pub type Interface(action,audio,display){
-  Action(new: fn(Int)->action, add: fn(String)->action,get_press_amount:fn(action)->Int)
-  Audio(press: fn()->audio, action:fn(Bool)->audio,background:fn()->Bool)
-  Display(new:fn()->display,print:fn(String)->Nil, action_read:fn())
+pub type Interface(display){
+  Action(characters: String, limit: Int)
+  Audio(press: fn()->Nil, action:fn(Bool)->Nil,background:fn()->Nil)
+  Display(tool:display,massage:String)//make different tool and massage for the identity and the information
 }
-
 pub type DisplayInterface
-///1 for each state
-pub trait Display {
-    /// Display information that is relevant to his current situation
-    fn display(s: &str);
-    /// Make a new display tool
-    fn new() -> Self;
-    ///Lets users initialize the Display object for action read
-    fn before_action_read(&mut self) {}
-    ///
-    fn action_read(&mut self) -> char;
+
+
+pub type InputProcessing(){
+  ReceiveInput:fn()->String
+}
+fn test(char:String)->Nil{
+  case string.byte_size(char){
+    1->{}
+    _->{panic}
+  }
 }
