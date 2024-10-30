@@ -1,17 +1,21 @@
+
 # flow chart
 ```mermaid
-flowchart TD
-   program-start --> input --> ordered-set--> output --> input
-    output --> program-end
-```
-
+flowchart TD 
+	program-start --> input --> sequence-keeper --> output --> program-end 
+	input --> program-end 
+``` 
 # reasoning
-The standard's users can response to sequences of unique inputs.
+The standard's uses an input function, sequence descriptions, and a value white list
+to return values that
+
+The standard's implementors can produce values that can guarantee:
+A sequence of given values 
+Only 
 # comments
 ## ordered-set
-Keep inputs.
-Sand them as output.
-When a limit is reached, sand itself as output instead, then clear itself.
+Keep inputs then sand them.
+When a limit is reached, sand itself instead, then clear itself.
 Certain input will make an early clear.
 ## output
 The user's input or the ordered-set
@@ -39,3 +43,30 @@ flowchart TD
 flowchart TD
     input-receiver --> ordered-set--> output --> input-receiver
 ```
+## 5
+```mermaid
+flowchart TD
+   program-start --> input --> ordered-set--> output --> input
+    output --> program-end
+```
+## 6
+```mermaid
+flowchart TD 
+	program-start --> input --> ordered-set --> output --> program-end 
+	input --> program-end 
+``` 
+## 7
+```mermaid
+flowchart TD 
+	program-start --> input --> ordered-set --> output --> program-end 
+	input --> program-end 
+	clearing-set --> ordered-set
+	size-limit --> ordered-set
+	last-ordered-set --> ordered-set
+``` 
+## 8
+```mermaid
+flowchart TD 
+	program-start --> input --> sequence-keeper --> output --> program-end 
+	input --> program-end 
+``` 
