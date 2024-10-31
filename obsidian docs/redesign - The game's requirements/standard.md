@@ -1,25 +1,26 @@
 
-# flow chart
+# user input
+## flow chart
 ```mermaid
 flowchart TD 
 	program-start --> input --> sequence-keeper --> output --> program-end 
 	input --> program-end 
 ``` 
-# reasoning
+## reasoning
 The standard's uses an input function, sequence descriptions, and a value white list
 to return values that
 
 The standard's implementors can produce values that can guarantee:
 A sequence of given values 
 Only 
-# comments
-## ordered-set
+## comments
+### ordered-set
 Keep inputs then sand them.
 When a limit is reached, sand itself instead, then clear itself.
 Certain input will make an early clear.
-## output
+### output
 The user's input or the ordered-set
-# iterations
+## iterations
 ## 1
 ```mermaid
 flowchart TD
@@ -70,3 +71,25 @@ flowchart TD
 	program-start --> input --> sequence-keeper --> output --> program-end 
 	input --> program-end 
 ``` 
+
+
+# value -> response map
+## flow chart
+```mermaid
+flowchart TD
+program-start --> input-function --> check --> program-end 
+wanted-set --> check
+```
+## reasoning
+The standard's users can ignore unwanted inputs.
+
+# mods
+## flow chart
+```mermaid
+flowchart TD
+    combat <--> location
+    options <--> location
+    credit <--> location
+    exit-option <--> location
+```
+State transitions are caused be output-received.
