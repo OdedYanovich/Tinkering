@@ -1,4 +1,10 @@
 
+## flow chart
+```mermaid
+flowchart TD
+    invocation --> display --> input-sequence --> mods --> return
+    mods --> display
+```
 # input-sequence
 The game response to user input and can acknowledge past inputs in the response.
 # mods

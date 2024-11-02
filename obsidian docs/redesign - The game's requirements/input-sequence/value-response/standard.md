@@ -2,7 +2,7 @@
 # flow chart
 ```mermaid
 flowchart TD
-program-start --> input --> map --> output --> program-end 
+invocation --> input --> map --> output --> return
 set-response-pairs --> map
 ```
 # set-response-pairs

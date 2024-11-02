@@ -2,8 +2,8 @@
 # flow chart
 ```mermaid
 flowchart TD 
-	program-start --> user-input --> value-response --> sequence-storage --> output --> program-end 
-	value-response --> program-end
+	invocation --> user-input --> value-response --> sequence-storage --> output --> program-end 
+	value-response --> return
 ``` 
 # user-input
 Abstract any supported input method to a function without parameters. 
@@ -12,6 +12,4 @@ Maps a given value to a response.
 # sequence-storage
 Remember inputs by order.
 # output
-The user's input or the ordered-set
-
-# value -> response map
+The sequence.

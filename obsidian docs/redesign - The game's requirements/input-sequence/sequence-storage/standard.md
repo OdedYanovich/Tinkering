@@ -2,11 +2,16 @@
 # flow chart
 ```mermaid
 flowchart TD
-program-start --> input --> map --> output --> program-end 
-length-response-pairs --> map
+invocation --> input --> map --> output --> return
+length-response-pairs --> map --> return
 capacity --> map
 ```
 
 # length-response-pairs
-Describe which sequ                     ence length will have which effect.
+Describe effects and the causing sequence. Currently, the effects are to clear the sequence and to sand the last values in it (the length is the same as the causing condition).
 # capacity
+The amount of stored values.
+# input
+A value.
+# output
+The sequence.
