@@ -2,8 +2,8 @@
 ## flow chart
 ```mermaid
 flowchart TD
-    invocation --> display --> input-sequence --> mods --> return
-    mods --> display
+    invocation --> display --> input-sequence --> mods --> display
+    input-sequence --> return
 ```
 # input-sequence
 The game response to user input and can acknowledge past inputs in the response.
