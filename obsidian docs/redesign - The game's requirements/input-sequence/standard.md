@@ -1,5 +1,5 @@
 
-# flow chart
+# process order
 ```mermaid
 flowchart TD 
 	invocation --> user-input --> value-response --> sequence-storage --> output --> program-end 

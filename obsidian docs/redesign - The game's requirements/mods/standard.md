@@ -1,6 +1,6 @@
 
 # mods
-## flow chart
+## game mods
 ```mermaid
 flowchart TD
     combat <--> location
