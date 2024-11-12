@@ -4,7 +4,7 @@ Input
 sequence
 # functionality
 read input: () -> input
-# bureaucracy
+# administration
 read sequence: (input, state) -> sequence
 # description
 Consciences are caused by input, display is independent from it
