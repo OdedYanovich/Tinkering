@@ -13,43 +13,43 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "redesign - The game's requirements/administration.md",
+                "file": "redesign - The game's requirements/response to updating encounter's sequence.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "administration"
+              "title": "response to updating encounter's sequence"
             }
           },
           {
-            "id": "83e61addb72af0e0",
+            "id": "cd3fe878052d82f5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "redesign - The game's requirements/target map.md",
+                "file": "redesign - The game's requirements/response to user input.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "target map"
+              "title": "response to user input"
             }
           },
           {
-            "id": "949c476ac894518c",
+            "id": "e32b1ac4101dac54",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "redesign - The game's requirements/white list.md",
+                "file": "encounter.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "white list"
+              "title": "encounter"
             }
           }
         ],
@@ -148,32 +148,35 @@
       "darlal-switcher-plus:Open Symbols for the active editor": false
     }
   },
-  "active": "83e61addb72af0e0",
+  "active": "cd3fe878052d82f5",
   "lastOpenFiles": [
-    "redesign - The game's requirements/administration.md",
-    "redesign - The game's requirements/target map.md",
+    "redesign - The game's requirements/response to updating encounter's sequence.md",
+    "redesign - The game's requirements/response to user input.md",
+    "redesign - The game's requirements/rules.md",
+    "encounter.md",
+    "redesign - The game's requirements/input-sequence/sequence-storage/standard.md",
+    "redesign - The game's requirements/input-sequence/value-response/standard.md",
+    "redesign - The game's requirements/display/standard.md",
+    "reasoning.md",
+    "redesign - The game's requirements/mods/standard.md",
     "redesign - The game's requirements/white list.md",
     "redesign - The game's requirements/user input.md",
+    "redesign - The game's requirements/target map.md",
+    "Brainstorm.md",
+    "future games/preferred Commands.md",
+    "future games",
+    "instruction.md",
+    "sound.md",
     "redesign2 - administrated objects/administration.md",
-    "redesign - The game's requirements/mods/standard.md",
     "redesign2 - administrated objects/Untitled",
     "redesign2 - administrated objects",
     "The only note.md",
-    "Brainstorm.md",
-    "encounter.md",
     "redesign - The game's requirements/input-sequence/standard.md",
-    "redesign - The game's requirements/display/standard.md",
-    "redesign - The game's requirements/input-sequence/sequence-storage/standard.md",
-    "sound.md",
-    "redesign - The game's requirements/input-sequence/value-response/standard.md",
     "redesign - The game's requirements/input-sequence/sequence-storage",
     "redesign - The game's requirements/input-sequence/value-response",
     "redesign - The game's requirements/display",
     "redesign - The game's requirements/mods",
     "redesign - The game's requirements/input-sequence",
-    "instruction.md",
-    "preferred Commands(done).md",
-    "reasoning.md",
     "redesign - The game's requirements/mod standard.md",
     "redesign - The game's requirements/value white list/standard.md",
     "redesign - The game's requirements/input to ordered-set/standard.md",
@@ -182,11 +185,8 @@
     "redesign - The game's requirements/user input processing/reason(refactoring needed).md",
     "redesign - The game's requirements/input to ordered-set",
     "redesign - The game's requirements/The game's requirements.md",
-    "redesign - The game's requirements/mods",
     "redesign/Untitled Diagram.svg",
     "dungeon.md",
-    "challenge.md",
-    "options.md",
     "tags example.canvas",
     "Untitled.canvas"
   ]

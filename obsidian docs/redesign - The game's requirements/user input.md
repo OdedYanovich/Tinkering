@@ -1,1 +1,0 @@
-Returns the player's latest button press.
