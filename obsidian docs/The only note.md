@@ -7,7 +7,7 @@ The main mechanics are only relevant during Encounters. [[#pipeline|Why?]]
 ## commanding
 The main mechanics incentivising players to play according to requirements that are called Commands. [[#excluding-possibilities|Why?]]
 ## simple-commands
-Commands aren't mixed. [[#small-start|Why?]]
+Commands aren't mixed (yet). 
 
 d = data, c = Command,
 i(x) = x is an instruction,
@@ -21,23 +21,18 @@ The main mechanics incentivizing faster reaction time. [[#reaction-time|Why?]]
 
 Action is redefined in each game-state transition. [[#excluding-possibilities|Why?]]
 ## level
-Encounters distinguishing themselves from each other. [[#excluding-possibilities|Why?]]
+Each encounters is unique.
 
 ## instructions
 Commands making a subset of the level that Action needs to be in.
 
 A Command is displayed according to it's order. 
-## foresight
-An opportunity to decide how to react to information will be given before the option to make the action.
-
 
 Numbers are displayed to express gaps between indexed indices.
 ## random-command
 Random indexing is associating random buttons to random indices. [[#excluding-possibilities|Why?]]
 ## escalation
 The game can escalate in difficulty forever.
-## incentive
-The core mechanics incentivising behaviour with Hp. 
 
 The player's reaction time is always incentivised to decrease and is required to meet the Layer's minimum.
 ## canter-state

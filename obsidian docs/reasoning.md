@@ -20,3 +20,7 @@ Determining a subset of known possibilities according to a subset of known restr
 Allowing for sequences of different length will make things complicated.
 # no-music
 A few sound effects might meet the needs of the entire game
+# incentive
+The core mechanics incentivising behaviour with Hp. 
+# foresight
+An opportunity to decide how to react to information will be given before the option to make the action.
