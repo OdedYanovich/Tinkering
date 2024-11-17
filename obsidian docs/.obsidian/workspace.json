@@ -82,7 +82,8 @@
               "title": "The only note"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -177,13 +178,13 @@
       "darlal-switcher-plus:Open Symbols for the active editor": false
     }
   },
-  "active": "cd3fe878052d82f5",
+  "active": "6b0e8e577ee0e09c",
   "lastOpenFiles": [
+    "redesign - The game's requirements/response to mod transition.md",
     "redesign - The game's requirements/response to user input.md",
     "redesign - The game's requirements/when player responds to required sequence.md",
     "encounter.md",
     "The only note.md",
-    "redesign - The game's requirements/response to mod transition.md",
     "reasoning.md",
     "redesign - The game's requirements/rules.md",
     "redesign - The game's requirements/mods/standard.md",
