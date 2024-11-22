@@ -10,6 +10,9 @@ flowchart TD
     credit <--> location
     exit-option <--> location
 ```
+
+## location
+The main menu from that will inform players about encounters and lets them transition to other states.
 ## combat
 The experience that provided in combat-mod is the selling point of the game. 
 ## options
@@ -17,10 +20,10 @@ just settings
 ## credit
 ## exit-option
 A pup up menu
-## location
-The main menu from that will inform players about encounters and lets them transition to other states.
-# shared memory
-display, options - visual settings
-combat, location - player's hp, encounter
-combat - next required sequence, current required sequence, incomplete sequence
-every mod, white list - important inputs
+# relations
+visual settings: option's state, every mod transition reads
+player's hp: combat's state, location transition reads
+encounter: location writes, combat reads
+next required sequence, current required sequence: combat's state
+wanted sequence kind: every mod transition writes, white list reads
+wanted sequence: white list writes, every mod reads
