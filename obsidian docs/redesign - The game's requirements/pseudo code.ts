@@ -5,50 +5,55 @@ const enum Expectations {
   Credit,
   Exit,
 }
-class VisualSettings{}
-class PlayerHp{}
-class EnemyHp{}
-class CurrentRequiredSequence{}
-class NextRequiredSequence{}
-class Encounter{}
-class WantedSequence{}
-class WantedSequenceKind{}
-class Token{}
+class VisualSettings { }
+class PlayerHp { }
+class EnemyHp { }
+class CurrentRequiredSequence { }
+class NextRequiredSequence { }
+class Encounter { }
+class Sequence { }
+class WantedSequenceKind {
+  user: sequenceUser
+}
+class sequenceUser { }
+class Token { }
+class WantedTokens { }
 
-class Management{
-    e: Expectations|undefined;
-    vs: VisualSettings|undefined;
-    php: PlayerHp|undefined;
-    ehp: EnemyHp|undefined;
-    crs: CurrentRequiredSequence|undefined;
-    nrs: NextRequiredSequence|undefined;
-    enc: Encounter|undefined;
-    ws: WantedSequence|undefined;
-    wsk: WantedSequenceKind|undefined;
+class Management {
+  e: Expectations;
+  vs: VisualSettings;
+  php: PlayerHp;
+  ehp: EnemyHp;
+  crs: CurrentRequiredSequence;
+  nrs: NextRequiredSequence;
+  enc: Encounter;
+  ws: Sequence;
+  wsk: WantedSequenceKind;
 }
 // Should take every worker and clerk as a parameter
-const manager=(m: Management, backup: any)=>any
+const manager = (m: Management, other: any) => other
 
-const stateClerkLocation=(ws: WantedSequence, backup: any)=>any
-const stateClerkCombat=(ws: WantedSequence, php:PlayerHp,ehp:EnemyHp, crs:CurrentRequiredSequence,nrs:NextRequiredSequence, e:Encounter,backup: any)=>[PlayerHp,EnemyHp, CurrentRequiredSequence,NextRequiredSequence, any]
-const stateClerkOptions=(ws: WantedSequence, vs:VisualSettings)=>[VisualSettings,any]
-const stateClerkCredit=(ws: WantedSequence, backup: any)=>any
-const stateClerkExit=(ws: WantedSequence, backup: any)=>any
+const stateClerkLocation = (s: Sequence, other: any) => other
+const stateClerkCombat = (s: Sequence, php: PlayerHp, ehp: EnemyHp, crs: CurrentRequiredSequence, nrs: NextRequiredSequence, e: Encounter, other: any) => [PlayerHp, EnemyHp, CurrentRequiredSequence, NextRequiredSequence, other]
+const stateClerkOptions = (s: Sequence, vs: VisualSettings, other: any) => [VisualSettings, other]
+const stateClerkCredit = (s: Sequence, other: any) => other
+const stateClerkExit = (s: Sequence, other: any) => other
 
-const transitionClerkLocation=(vs:VisualSettings, hp:PlayerHp, backup: any)=>[WantedSequenceKind,any]
-const transitionClerkCombat=(vs:VisualSettings, backup: any)=>[Encounter,EnemyHp,WantedSequenceKind]
-const transitionClerkOptions=(vs:VisualSettings, backup: any)=>[WantedSequenceKind, any]
-const transitionClerkCredit=(vs:VisualSettings, backup: any)=>[WantedSequenceKind, any]
-const transitionClerkExit=(vs:VisualSettings, backup: any)=>[WantedSequenceKind, any]
+const transitionClerkLocation = (vs: VisualSettings, hp: PlayerHp, other: any) => [WantedSequenceKind, other]
+const transitionClerkCombat = (vs: VisualSettings, backup: any) => [Encounter, EnemyHp, WantedSequenceKind]
+const transitionClerkOptions = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
+const transitionClerkCredit = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
+const transitionClerkExit = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
 
-const workerLocationIdentity=(vs:VisualSettings, backup: any)=>any
-const workerCombatIdentity=(vs:VisualSettings, backup: any)=>any
-const workerOptionsIdentity=(vs:VisualSettings, backup: any)=>any
-const workerCreditIdentity=(vs:VisualSettings, backup: any)=>any
-const workerExitIdentity=(vs:VisualSettings, backup: any)=>any
-const workerDisplay=(backup: any)=>any
+const blueCollarLocationIdentity = (vs: VisualSettings, other: any) => other
+const blueCollarCombatIdentity = (vs: VisualSettings, other: any) => other
+const blueCollarOptionsIdentity = (vs: VisualSettings, other: any) => other
+const blueCollarCreditIdentity = (vs: VisualSettings, other: any) => other
+const blueCollarExitIdentity = (vs: VisualSettings, other: any) => other
+const blueCollarDisplay = (other: any) => other
 
-const workerWhiteList=(t:Token, ws:WantedSequence, wsk: WantedSequenceKind,backup: any)=>[WantedSequence,any]
+const blueCollarWhiteList = (t: Token, wt: WantedTokens, other: any) => [Token, other]
+const blueCollarSequencer = (t: Token, ws: Sequence, wsk: WantedSequenceKind, other: any) => [Sequence, other]
 
 console.log(Expectations.Combat)
 

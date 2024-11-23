@@ -1,6 +1,6 @@
 
 # mods
-Each mod is a state that changes the behaviour of the game and the responses to user input. Any sheard memory between them has to be expressed.
+Each mod is a state that changes the behavior of the game and the responses to user input. Any shard memory between them has to be expressed.
 Associated with identity-display and required-sequences that will becomes relevant in the transition.
 # transitions
 ```mermaid
