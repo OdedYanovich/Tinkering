@@ -1,17 +1,15 @@
-pub type Interface(display){
-  Action(characters: String, limit: Int)
-  Audio(press: fn()->Nil, action:fn(Bool)->Nil,background:fn()->Nil)
-  Display(tool:display,massage:String)//make different tool and massage for the identity and the information
-}
-pub type DisplayInterface
+type Sequence
+type VisualSettings
 
+fn clerk_location(temp:fn(Sequence)->Nil){}
+fn clerk_combat()->Nil{}
+fn clerk_options(){}
+fn clerk_credit(){}
+fn clerk_exit(){}
 
-pub type InputProcessing(){
-  ReceiveInput:fn()->String
-}
-fn test(char:String)->Nil{
-  case string.byte_size(char){
-    1->{}
-    _->{panic}
-  }
-}
+fn organizer_location(f:fn(VisualSettings)->Nil){}
+fn organizer_combat(){}
+fn organizer_options(){}
+fn organizer_credit(){}
+fn organizer_exit(){}
+

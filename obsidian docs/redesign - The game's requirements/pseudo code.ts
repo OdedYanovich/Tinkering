@@ -6,8 +6,13 @@ const enum Expectations {
   Exit,
 }
 interface VisualSettings { }
-interface PlayerHp { }
-interface EnemyHp { }
+interface PlayerHp {
+  decrease
+  increase
+ }
+interface EnemyHp { 
+  decrease(amountMultiplier)
+}
 interface CurrentRequiredSequence { }
 interface NextRequiredSequence { }
 interface Encounter { }
@@ -19,17 +24,17 @@ interface sequenceUser { }
 interface Token { }
 interface WantedTokens { }
 
-const stateClerkLocation = (s: Sequence, other: any) => other
-const stateClerkCombat = (s: Sequence, php: PlayerHp, ehp: EnemyHp, crs: CurrentRequiredSequence, nrs: NextRequiredSequence, e: Encounter, other: any) => [PlayerHp, EnemyHp, CurrentRequiredSequence, NextRequiredSequence, other]
-const stateClerkOptions = (s: Sequence, vs: VisualSettings, other: any) => [VisualSettings, other]
-const stateClerkCredit = (s: Sequence, other: any) => other
-const stateClerkExit = (s: Sequence, other: any) => other
+const ClerkLocation = (s: Sequence, other: any) => other
+const ClerkCombat = (s: Sequence, php: PlayerHp, ehp: EnemyHp, crs: CurrentRequiredSequence, nrs: NextRequiredSequence, e: Encounter, other: any) => [PlayerHp, EnemyHp, CurrentRequiredSequence, NextRequiredSequence, other]
+const ClerkOptions = (s: Sequence, vs: VisualSettings, other: any) => [VisualSettings, other]
+const ClerkCredit = (s: Sequence, other: any) => other
+const ClerkExit = (s: Sequence, other: any) => other
 
-const transitionClerkLocation = (vs: VisualSettings, hp: PlayerHp, other: any) => [WantedSequenceKind, other]
-const transitionClerkCombat = (vs: VisualSettings, backup: any) => [Encounter, EnemyHp, WantedSequenceKind]
-const transitionClerkOptions = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
-const transitionClerkCredit = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
-const transitionClerkExit = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
+const OrganizerLocation = (vs: VisualSettings, hp: PlayerHp, other: any) => [WantedSequenceKind, other]
+const OrganizerCombat = (vs: VisualSettings, backup: any) => [Encounter, EnemyHp, WantedSequenceKind]
+const OrganizerOptions = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
+const OrganizerCredit = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
+const OrganizerExit = (vs: VisualSettings, other: any) => [WantedSequenceKind, other]
 
 const blueCollarLocationIdentity = (vs: VisualSettings, other: any) => other
 const blueCollarCombatIdentity = (vs: VisualSettings, other: any) => other
