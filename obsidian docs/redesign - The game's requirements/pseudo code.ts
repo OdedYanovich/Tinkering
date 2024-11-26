@@ -5,33 +5,19 @@ const enum Expectations {
   Credit,
   Exit,
 }
-class VisualSettings { }
-class PlayerHp { }
-class EnemyHp { }
-class CurrentRequiredSequence { }
-class NextRequiredSequence { }
-class Encounter { }
-class Sequence { }
-class WantedSequenceKind {
+interface VisualSettings { }
+interface PlayerHp { }
+interface EnemyHp { }
+interface CurrentRequiredSequence { }
+interface NextRequiredSequence { }
+interface Encounter { }
+interface Sequence { }
+interface WantedSequenceKind {
   user: sequenceUser
 }
-class sequenceUser { }
-class Token { }
-class WantedTokens { }
-
-class Management {
-  e: Expectations;
-  vs: VisualSettings;
-  php: PlayerHp;
-  ehp: EnemyHp;
-  crs: CurrentRequiredSequence;
-  nrs: NextRequiredSequence;
-  enc: Encounter;
-  ws: Sequence;
-  wsk: WantedSequenceKind;
-}
-// Should take every worker and clerk as a parameter
-const manager = (m: Management, other: any) => other
+interface sequenceUser { }
+interface Token { }
+interface WantedTokens { }
 
 const stateClerkLocation = (s: Sequence, other: any) => other
 const stateClerkCombat = (s: Sequence, php: PlayerHp, ehp: EnemyHp, crs: CurrentRequiredSequence, nrs: NextRequiredSequence, e: Encounter, other: any) => [PlayerHp, EnemyHp, CurrentRequiredSequence, NextRequiredSequence, other]
@@ -57,3 +43,17 @@ const blueCollarSequencer = (t: Token, ws: Sequence, wsk: WantedSequenceKind, ot
 
 console.log(Expectations.Combat)
 
+
+// class Management {
+//   e: Expectations;
+//   vs: VisualSettings;
+//   php: PlayerHp;
+//   ehp: EnemyHp;
+//   crs: CurrentRequiredSequence;
+//   nrs: NextRequiredSequence;
+//   enc: Encounter;
+//   ws: Sequence;
+//   wsk: WantedSequenceKind;
+// }
+// // Should take every worker and clerk as a parameter
+// const manager = (m: Management, other: any) => other
