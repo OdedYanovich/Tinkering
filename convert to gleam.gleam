@@ -1,19 +1,19 @@
+type States {
+  Location
+  Combat
+  Options
+  Exit
+}
 type Sequence
 type SequenceUser
-type WantedSequenceKind {
-  User(SequenceUser)
-}
+type WantedSequenceKind = #(SequenceUser, Int)
 type CurrentRequiredSequence 
 type NextRequiredSequence 
 type VisualSettings
-type PlayerHp {
-  Increase
-  Decrease
-}
-type EnemyHp {
-  DecreaseBy(Int)
-}
+type PlayerHp = Int
+type EnemyHp = Int
 type Encounter
+
 type Token
 type WantedTokens
 
@@ -38,17 +38,36 @@ type BlueCollarDisplay = fn() -> Nil
 
 type BlueCollarWhiteList = fn(Token, WantedTokens) -> Nil
 type BlueCollarSequencer = fn(Token, Sequence, WantedSequenceKind) -> Nil
+type EnemyHpChange = fn(Int, Int) -> Int
 
-// type Management {
-//   e: Expectations
-//   vs: VisualSettings
-//   php: PlayerHp
-//   ehp: EnemyHp
-//   crs: CurrentRequiredSequence
-//   nrs: NextRequiredSequence
-//   enc: Encounter
-//   ws: Sequence
-//   wsk: WantedSequenceKind
-// }
-// // Should take every worker and clerk as a parameter
-// const manager = (m: Management, other: any) => other
+pub type Management = #(
+  States,
+  VisualSettings,
+  PlayerHp,
+  EnemyHp,
+  CurrentRequiredSequence,
+  NextRequiredSequence,
+  Encounter,
+  Sequence,
+  WantedSequenceKind,
+  LocationClerk,
+  CombatClerk,
+  OptionClerk,
+  CreditClerk,
+  ExitClerk,
+  LocationOrganizer,
+  CombatOrganizer,
+  OptionOrganizer,
+  CreditOrganizer,
+  ExitOrganizer,
+  BlueCollarLocationIdentity,
+  BlueCollarCombatIdentity,
+  BlueCollarOptionsIdentity,
+  BlueCollarCreditIdentity,
+  BlueCollarExitIdentity,
+  BlueCollarDisplay,
+  BlueCollarWhiteList,
+  BlueCollarSequencer,
+  EnemyHpChange,
+)
+pub type Manager = fn(Management, Token) -> Management
